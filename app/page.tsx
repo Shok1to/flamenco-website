@@ -155,9 +155,6 @@ export default function Home() {
                       Learn More
                     </Button>
                   </Link>
-                  <Link href="/gallery">
-                    <Button variant="outline">View Gallery</Button>
-                  </Link>
                 </div>
               </div>
             </div>
