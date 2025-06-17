@@ -125,14 +125,14 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
               {/* Added logo to the homepage about section */}
-              <div className="relative flex justify-center items-center">
+              {/* <div className="relative flex justify-center items-center">
                 <img
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lunares%20in%20Long%20Rectangle.jpg-XDG4g1JCIgYB5EKskbgJC9Xq2nYnNW.jpeg"
                   alt="Tablao Flamenco Toronto Logo"
                   className="max-w-full h-auto rounded-lg"
                   style={{ maxWidth: "280px" }}
                 />
-              </div>
+              </div> */}
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
                   What is Tablao?
