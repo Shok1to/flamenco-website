@@ -46,7 +46,7 @@ export default function Home() {
         <section id="events" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
-              Upcoming Events
+              Next Tablao
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
@@ -135,7 +135,7 @@ export default function Home() {
               </div>
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
-                  About Our Tablao
+                  What is Tablao?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-4">
                   Founded in 2010, our tablao brings the authentic spirit of
