@@ -35,7 +35,7 @@ export default function Home() {
           </div>
           <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              Experience the Passion of Flamenco
+              Next Tablao
             </h1>
             <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
               Authentic performances that capture the soul and spirit of Spain
@@ -77,7 +77,12 @@ export default function Home() {
               ].map((event) => (
                 <Card key={event.id} className="overflow-hidden">
                   <div className="aspect-video relative">
-                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+                    <Image
+                      src={event.image || "/placeholder.svg"}
+                      alt={event.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold mb-2">{event.title}</h3>
@@ -94,10 +99,13 @@ export default function Home() {
                       <span>{event.location}</span>
                     </div>
                     <p className="text-sm mb-4">
-                      Experience an unforgettable night of authentic flamenco with our talented dancers and musicians.
+                      Experience an unforgettable night of authentic flamenco
+                      with our talented dancers and musicians.
                     </p>
                     <Link href={`/events/${event.id}`}>
-                      <Button className="w-full bg-flamenco hover:bg-flamenco-hover">Book Now</Button>
+                      <Button className="w-full bg-flamenco hover:bg-flamenco-hover">
+                        Book Now
+                      </Button>
                     </Link>
                   </CardContent>
                 </Card>
@@ -126,19 +134,26 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">About Our Tablao</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
+                  About Our Tablao
+                </h2>
                 <p className="text-lg text-muted-foreground mb-4">
-                  Founded in 2010, our tablao brings the authentic spirit of Andalusian flamenco to life. We showcase
-                  the finest dancers, singers, and guitarists in an intimate setting that honors this UNESCO-recognized
-                  art form.
+                  Founded in 2010, our tablao brings the authentic spirit of
+                  Andalusian flamenco to life. We showcase the finest dancers,
+                  singers, and guitarists in an intimate setting that honors
+                  this UNESCO-recognized art form.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Each performance is a unique journey through the passionate expressions of flamenco, from the soulful
-                  singing (cante) to the intricate guitar playing (toque) and the powerful dancing (baile).
+                  Each performance is a unique journey through the passionate
+                  expressions of flamenco, from the soulful singing (cante) to
+                  the intricate guitar playing (toque) and the powerful dancing
+                  (baile).
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/about">
-                    <Button className="bg-flamenco hover:bg-flamenco-hover">Learn More</Button>
+                    <Button className="bg-flamenco hover:bg-flamenco-hover">
+                      Learn More
+                    </Button>
                   </Link>
                   <Link href="/gallery">
                     <Button variant="outline">View Gallery</Button>
@@ -151,7 +166,9 @@ export default function Home() {
 
         <section id="contact" className="py-16 bg-white">
           <div className="container">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">Contact Us</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">
+              Contact Us
+            </h2>
             <div className="max-w-2xl mx-auto">
               <ContactForm />
             </div>
