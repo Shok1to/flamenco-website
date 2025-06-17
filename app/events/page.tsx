@@ -16,7 +16,8 @@ export default function EventsPage() {
       date: "June 15, 2024",
       time: "8:00 PM",
       location: "Tablao Flamenco Theater",
-      description: "Experience an unforgettable night of authentic flamenco with our talented dancers and musicians.",
+      description:
+        "Experience an unforgettable night of authentic flamenco with our talented dancers and musicians.",
       image: "/placeholder.svg?key=hiooi",
       price: 45,
     },
@@ -37,7 +38,8 @@ export default function EventsPage() {
       date: "June 29, 2024",
       time: "8:00 PM",
       location: "Tablao Flamenco Theater",
-      description: "An intimate evening focused on the soulful singing and masterful guitar playing of flamenco.",
+      description:
+        "An intimate evening focused on the soulful singing and masterful guitar playing of flamenco.",
       image: "/placeholder.svg?key=cqq01",
       price: 40,
     },
@@ -58,7 +60,8 @@ export default function EventsPage() {
       date: "July 12, 2024",
       time: "8:00 PM",
       location: "Tablao Flamenco Theater",
-      description: "A special performance celebrating the rich cultural heritage of Andalusia through flamenco.",
+      description:
+        "A special performance celebrating the rich cultural heritage of Andalusia through flamenco.",
       image: "/placeholder.svg?key=0yjm4",
       price: 45,
     },
@@ -68,7 +71,8 @@ export default function EventsPage() {
       date: "July 19, 2024",
       time: "7:30 PM",
       location: "Tablao Flamenco Theater",
-      description: "Enjoy authentic Spanish tapas while experiencing the passion of flamenco in this dinner show.",
+      description:
+        "Enjoy authentic Spanish tapas while experiencing the passion of flamenco in this dinner show.",
       image: "/placeholder.svg?key=8b8bo",
       price: 65,
     },
@@ -81,13 +85,18 @@ export default function EventsPage() {
         <section className="py-12 md:py-16 bg-slate-50">
           <div className="container">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
-              Upcoming Events
+              Next Tablao
             </h1>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {events.map((event) => (
                 <Card key={event.id} className="overflow-hidden">
                   <div className="aspect-video relative">
-                    <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+                    <Image
+                      src={event.image || "/placeholder.svg"}
+                      alt={event.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold mb-2">{event.title}</h3>
@@ -103,10 +112,14 @@ export default function EventsPage() {
                       <MapPin className="mr-2 h-4 w-4" />
                       <span>{event.location}</span>
                     </div>
-                    <div className="text-sm font-medium text-red-600 mb-4">€{event.price}</div>
+                    <div className="text-sm font-medium text-red-600 mb-4">
+                      €{event.price}
+                    </div>
                     <p className="text-sm mb-4">{event.description}</p>
                     <Link href={`/events/${event.id}`}>
-                      <Button className="w-full bg-flamenco hover:bg-flamenco-hover">Book Now</Button>
+                      <Button className="w-full bg-flamenco hover:bg-flamenco-hover">
+                        Book Now
+                      </Button>
                     </Link>
                   </CardContent>
                 </Card>
