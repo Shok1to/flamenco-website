@@ -49,7 +49,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
               Next Tablao
             </h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex justify-center">
               {[
                 {
                   id: 1,
@@ -60,7 +60,10 @@ export default function Home() {
                   image: "/placeholder.svg?key=k470x",
                 },
               ].map((event) => (
-                <Card key={event.id} className="overflow-hidden">
+                <Card
+                  key={event.id}
+                  className="overflow-hidden max-w-md w-full"
+                >
                   <div className="aspect-video relative">
                     <Image
                       src={event.image || "/placeholder.svg"}
@@ -110,14 +113,14 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
               {/* Added logo to the homepage about section */}
-              {/* <div className="relative flex justify-center items-center">
+              <div className="relative flex justify-center items-center">
                 <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lunares%20in%20Long%20Rectangle.jpg-XDG4g1JCIgYB5EKskbgJC9Xq2nYnNW.jpeg"
-                  alt="Tablao Flamenco Toronto Logo"
+                  src=""
+                  alt="Tablao Performance"
                   className="max-w-full h-auto rounded-lg"
-                  style={{ maxWidth: "280px" }}
+                  style={{ maxWidth: "500px" }}
                 />
-              </div> */}
+              </div>
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
                   What is Tablao?
