@@ -115,7 +115,7 @@ export default function Home() {
               <div>
                 <div className="aspect-video relative max-w-lg w-full mx-auto">
                   <Image
-                    src="/your-image-path.jpg"
+                    src="/placeholder.svg?key=k470x"
                     alt="Tablao Performance"
                     fill
                     className="object-cover rounded-lg"
