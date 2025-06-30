@@ -82,4 +82,44 @@ const config = {
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
 
+const photos = [
+  {
+    src: "/images/photo1.jpg",
+    title: "Live Performance at Toronto Centre",
+    description: "A passionate Flamenco performance captured live in 2023.",
+  },
+  {
+    src: "/images/photo2.jpg",
+    title: "Backstage Moments",
+    description: "Artists preparing behind the scenes before the big show.",
+  },
+  // Add more photos as needed
+]
+
+export default function Gallery() {
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">Photo Gallery</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {photos.map((photo, index) => (
+          <div
+            key={index}
+            className="bg-white rounded shadow hover:shadow-lg overflow-hidden"
+          >
+            <img
+              src={photo.src}
+              alt={photo.title}
+              className="w-full h-60 object-cover"
+            />
+            <div className="p-4">
+              <h2 className="text-lg font-semibold mb-2">{photo.title}</h2>
+              <p className="text-gray-600">{photo.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default config
