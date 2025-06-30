@@ -43,39 +43,39 @@ export default function EventsPage() {
       image: "/placeholder.svg?key=cqq01",
       price: 40,
     },
-    {
-      id: 4,
-      title: "Flamenco Workshop",
-      date: "July 5, 2024",
-      time: "6:00 PM",
-      location: "Tablao Flamenco Studio",
-      description:
-        "Learn the basics of flamenco dance in this beginner-friendly workshop led by our professional dancers.",
-      image: "/placeholder.svg?key=ho18p",
-      price: 35,
-    },
-    {
-      id: 5,
-      title: "Andalusian Night",
-      date: "July 12, 2024",
-      time: "8:00 PM",
-      location: "Tablao Flamenco Theater",
-      description:
-        "A special performance celebrating the rich cultural heritage of Andalusia through flamenco.",
-      image: "/placeholder.svg?key=0yjm4",
-      price: 45,
-    },
-    {
-      id: 6,
-      title: "Flamenco & Tapas",
-      date: "July 19, 2024",
-      time: "7:30 PM",
-      location: "Tablao Flamenco Theater",
-      description:
-        "Enjoy authentic Spanish tapas while experiencing the passion of flamenco in this dinner show.",
-      image: "/placeholder.svg?key=8b8bo",
-      price: 65,
-    },
+    // {
+    //   id: 4,
+    //   title: "Flamenco Workshop",
+    //   date: "July 5, 2024",
+    //   time: "6:00 PM",
+    //   location: "Tablao Flamenco Studio",
+    //   description:
+    //     "Learn the basics of flamenco dance in this beginner-friendly workshop led by our professional dancers.",
+    //   image: "/placeholder.svg?key=ho18p",
+    //   price: 35,
+    // },
+    // {
+    //   id: 5,
+    //   title: "Andalusian Night",
+    //   date: "July 12, 2024",
+    //   time: "8:00 PM",
+    //   location: "Tablao Flamenco Theater",
+    //   description:
+    //     "A special performance celebrating the rich cultural heritage of Andalusia through flamenco.",
+    //   image: "/placeholder.svg?key=0yjm4",
+    //   price: 45,
+    // },
+    // {
+    //   id: 6,
+    //   title: "Flamenco & Tapas",
+    //   date: "July 19, 2024",
+    //   time: "7:30 PM",
+    //   location: "Tablao Flamenco Theater",
+    //   description:
+    //     "Enjoy authentic Spanish tapas while experiencing the passion of flamenco in this dinner show.",
+    //   image: "/placeholder.svg?key=8b8bo",
+    //   price: 65,
+    // },
   ]
 
   return (
