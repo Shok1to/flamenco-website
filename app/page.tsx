@@ -59,22 +59,6 @@ export default function Home() {
                   location: "Tablao Flamenco Theater",
                   image: "/placeholder.svg?key=k470x",
                 },
-                {
-                  id: 2,
-                  title: "Guitarra y Cante",
-                  date: "June 18, 2024",
-                  time: "8:00 PM",
-                  location: "Tablao Flamenco Theater",
-                  image: "/placeholder.svg?key=fhl8t",
-                },
-                {
-                  id: 3,
-                  title: "Flamenco Fusion",
-                  date: "June 25, 2024",
-                  time: "8:00 PM",
-                  location: "Tablao Flamenco Theater",
-                  image: "/placeholder.svg?key=ofzr3",
-                },
               ].map((event) => (
                 <Card key={event.id} className="overflow-hidden">
                   <div className="aspect-video relative">
