@@ -112,15 +112,17 @@ export default function Home() {
         <section id="about" className="py-16 bg-slate-50">
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
-              {/* Added logo to the homepage about section */}
-              <div className="relative flex justify-center items-center">
-                <img
-                  src=""
-                  alt="Tablao Performance"
-                  className="max-w-full h-auto rounded-lg"
-                  style={{ maxWidth: "500px" }}
-                />
+              <div>
+                <div className="aspect-video relative max-w-lg w-full mx-auto">
+                  <Image
+                    src="/your-image-path.jpg"
+                    alt="Tablao Performance"
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                </div>
               </div>
+
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
                   What is Tablao?
