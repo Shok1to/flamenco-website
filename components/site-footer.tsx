@@ -8,7 +8,7 @@ export function SiteFooter() {
   return (
     <footer
       className="border-t text-white"
-      style={{ backgroundColor: "#950606" }}
+      style={{ backgroundColor: "#C8102E" }}
     >
       <div className="container py-8 md:py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

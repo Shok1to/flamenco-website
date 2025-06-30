@@ -26,8 +26,8 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         flamenco: {
-          DEFAULT: "#E61919",
-          hover: "#CC1515",
+          DEFAULT: "#C8102E",
+          hover: "#A50D25",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
