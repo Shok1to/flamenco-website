@@ -49,73 +49,37 @@ export default function AboutPage() {
 
             <Separator className="my-12" />
 
-            <div className="text-center mb-12">
+            {/* <div className="text-center mb-12">
               <h2 className="text-2xl font-bold mb-4">About Kiyo</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 We work with some of the most talented flamenco artists, each
                 bringing their unique style and interpretation to this
-                traditional art form.
+                traditional art form./placeholder.svg?key=0fnfu
               </p>
-            </div>
+            </div> */}
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  name: "Carmen Romero",
-                  role: "Lead Dancer",
-                  bio: "With over 15 years of experience, Carmen is known for her powerful footwork and emotional expression.",
-                  image: "/placeholder.svg?key=0fnfu",
-                },
-                // {
-                //   name: "Miguel Fernández",
-                //   role: "Guitarist",
-                //   bio: "A virtuoso guitarist who has performed worldwide and recorded with some of the greatest flamenco artists.",
-                //   image: "/placeholder.svg?key=dzusu",
-                // },
-                // {
-                //   name: "Rafael Cortés",
-                //   role: "Singer",
-                //   bio: "Rafael's deep, soulful voice carries the centuries-old tradition of flamenco singing with authentic passion.",
-                //   image: "/placeholder.svg?key=bzupc",
-                // },
-                // {
-                //   name: "Lucía Martínez",
-                //   role: "Dancer",
-                //   bio: "Lucía brings grace and fire to every performance, specializing in the Alegrías and Soleá styles.",
-                //   image: "/placeholder.svg?key=u4z52",
-                // },
-                // {
-                //   name: "Antonio Reyes",
-                //   role: "Percussionist",
-                //   bio: "Antonio's rhythmic precision on the cajón adds depth and texture to our flamenco performances.",
-                //   image: "/placeholder.svg?key=a4fwy",
-                // },
-                // {
-                //   name: "Isabel Flores",
-                //   role: "Dancer & Choreographer",
-                //   bio: "As our artistic director, Isabel brings innovation while respecting the traditional roots of flamenco.",
-                //   image: "/placeholder.svg?key=k9uye",
-                // },
-              ].map((artist) => (
-                <div
-                  key={artist.name}
-                  className="flex flex-col items-center text-center"
-                >
-                  <div className="relative h-48 w-48 overflow-hidden rounded-full mb-4">
-                    <Image
-                      src={artist.image || "/placeholder.svg"}
-                      alt={artist.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold">{artist.name}</h3>
-                  <p className="text-sm text-flamenco-500 mb-2">
-                    {artist.role}
-                  </p>
-                  <p className="text-sm text-muted-foreground">{artist.bio}</p>
-                </div>
-              ))}
+            <h2 className="text-2xl font-bold mb-4">About Kiyo</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We work with some of the most talented flamenco artists, each
+              bringing their unique style and interpretation to this traditional
+              art form.
+            </p>
+
+            <div className="flex flex-col items-center text-center mb-12">
+              <div className="w-40 h-40 relative mb-4">
+                <Image
+                  src="/placeholder.svg?key=0fnfu"
+                  alt="Kiyo"
+                  fill
+                  className="object-cover rounded-full"
+                />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Kiyo</h3>
+              <p className="text-muted-foreground max-w-xl">
+                Kiyo is a passionate flamenco artist known for her powerful
+                performances and dedication to preserving the traditional art
+                form.
+              </p>
             </div>
 
             <Separator className="my-12" />
