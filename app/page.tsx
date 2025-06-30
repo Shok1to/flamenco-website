@@ -34,9 +34,10 @@ export default function Home() {
             <HeroCarousel images={heroImages} />
           </div>
           <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl fade-out">
               Next Tablao
             </h1>
+
             <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
               Authentic performances that capture the soul and spirit of Spain
             </p>
