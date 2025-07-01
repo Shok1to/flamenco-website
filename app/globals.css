@@ -1,9 +1,21 @@
+/* app/globals.css */
+
+/* Add this block at the very top */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* Optional: Prevent horizontal scrollbar if elements slightly overflow */
+  overflow-x: hidden;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  /* Ensure no conflicting margin/padding here, though @apply below handles some */
 }
 
 @layer utilities {
@@ -90,5 +102,6 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    /* Ensure no margin or padding here that would override the global reset */
   }
 }
