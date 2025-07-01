@@ -1,19 +1,19 @@
 /* app/globals.css */
 
 /* Aggressive Reset to force removal of all default spacing */
-html,
-body {
+/* Ensure html also has these forceful resets */
+html {
   margin: 0 !important;
   padding: 0 !important;
-  /* Ensure no default padding/margin is inherited or applied */
+  box-sizing: border-box; /* Good practice for all elements */
 }
 
-/* Ensure the body itself doesn't have a min-height or padding that pushes things */
 body {
-  min-height: 100vh; /* Make sure body itself can stretch */
   margin: 0 !important;
   padding: 0 !important;
-  overflow-x: hidden; /* Prevent horizontal scrollbar if elements slightly overflow */
+  /* Make sure body itself takes full height for content flow */
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
 /* The __next div is where Next.js mounts your app, ensure it's also flush */
@@ -28,12 +28,20 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-/*
-  The @layer base block below also applies to 'body',
-  but the direct 'html, body' and 'body' rules above
-  with !important should take precedence for margin/padding.
-  You can leave the font-family here or move it up if you prefer.
-*/
+/* Ensure no conflicting margin/padding are introduced by these layers */
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box; /* Apply border-box globally */
+  }
+  body {
+    @apply bg-background text-foreground;
+    margin: 0; /* Redundant but safe, just in case */
+    padding: 0; /* Redundant but safe, just in case */
+  }
+}
+
+/* This specific body rule should be fine for font, but keep margin/padding out */
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -44,15 +52,8 @@ body {
   }
 }
 
+/* Rest of your @layer base styles (variables) */
 @layer base {
-  * {
-    @apply border-border;
-  }
-  /* Remove any margin/padding from this body rule if it's there */
-  body {
-    @apply bg-background text-foreground;
-  }
-  /* ... your :root and .dark variables ... */
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
