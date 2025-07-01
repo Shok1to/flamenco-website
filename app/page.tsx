@@ -129,7 +129,7 @@ export default function Home() {
               <div>
                 <div className="aspect-video relative max-w-lg w-full mx-auto">
                   <Image
-                    src="/placeholder.svg?key=k470x"
+                    src="/Tablao.jpg"
                     alt="Tablao Performance"
                     fill
                     className="object-cover rounded-lg"
@@ -142,16 +142,18 @@ export default function Home() {
                   What is Tablao?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-4">
-                  Founded in 2010, our tablao brings the authentic spirit of
-                  Andalusian flamenco to life. We showcase the finest dancers,
-                  singers, and guitarists in an intimate setting that honors
-                  this UNESCO-recognized art form.
+                  A tablao is an intimate venue for live flamenco, where
+                  dancers, singers, and musicians come together to create
+                  unforgettable performances. Unlike large theaters, a tablao
+                  lets you experience flamenco up close—full of passion,
+                  emotion, and connection between artists and audience.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Each performance is a unique journey through the passionate
-                  expressions of flamenco, from the soulful singing (cante) to
-                  the intricate guitar playing (toque) and the powerful dancing
-                  (baile).
+                  At our tablao, you’ll find not just incredible artistry but
+                  also a sense of community. Every show is unique, shaped by the
+                  energy in the room and the bond among performers. It’s
+                  flamenco the way it’s meant to be: alive, authentic, and full
+                  of heart.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/about">
