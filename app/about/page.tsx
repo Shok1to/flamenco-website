@@ -24,7 +24,7 @@ export default function AboutPage() {
                 />
               </div> */}
               <div className="max-w-2xl mx-auto">
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground text-center mb-4">
                   Founded in 2010, our tablao brings the authentic spirit of
                   Andalusian flamenco to life. We showcase the finest dancers,
                   singers, and guitarists in an intimate setting that honors
