@@ -1,3 +1,4 @@
+// app/page.tsx
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, MapPin } from "lucide-react"
@@ -6,37 +7,51 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { HeroCarousel } from "@/components/hero-carousel" // Unused in your provided code
 import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
+  const heroImages = [
+    {
+      src: "/placeholder.svg?key=itgc3",
+      alt: "Flamenco dancer in red dress",
+    },
+    {
+      src: "/placeholder.svg?key=5warc",
+      alt: "Flamenco dancer with dramatic pose",
+    },
+    {
+      src: "/placeholder.svg?key=otucc",
+      alt: "Passionate flamenco performance",
+    },
+  ]
+
   return (
     <div className="flex min-h-screen flex-col">
-      {/* HEADER overlays the hero image */}
-      <SiteHeader className="absolute w-full z-20 top-0 left-0" />
+      <SiteHeader />
       <main className="flex-1">
-        {/* HERO SECTION */}
-        <section
-          id="home"
-          className="relative min-h-[70vh] flex items-center justify-center"
-          style={{
-            backgroundImage: "url('/flamenco.webp')", // <-- change to your file if needed
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 flex flex-col items-center justify-center w-full text-white text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-3 drop-shadow-lg">
+        <section id="home" className="relative">
+          <div
+            className="absolute inset-0 z-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/flamenco.webp')", // Change filename as needed
+            }}
+          >
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+
+          {/* Added pt-16 to push content down by header's height */}
+          <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white pt-16">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl fade-out">
               Next Tablao
             </h1>
-            <p className="text-lg md:text-2xl font-medium drop-shadow">
+
+            <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
               Authentic performances that capture the soul and spirit of Spain
             </p>
           </div>
         </section>
 
-        {/* EVENTS SECTION */}
         <section id="events" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
@@ -102,7 +117,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ABOUT SECTION */}
         <section id="about" className="py-16 bg-slate-50">
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
@@ -145,7 +159,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CONTACT SECTION */}
         <section id="contact" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">
