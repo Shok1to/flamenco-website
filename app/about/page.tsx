@@ -23,8 +23,7 @@ export default function AboutPage() {
                   style={{ maxWidth: "280px" }}
                 />
               </div> */}
-              <div>
-                {/* <h2 className="text-2xl font-bold mb-4">Our Story</h2> */}
+              <div className="max-w-2xl mx-auto">
                 <p className="text-muted-foreground mb-4">
                   Founded in 2010, our tablao brings the authentic spirit of
                   Andalusian flamenco to life. We showcase the finest dancers,
