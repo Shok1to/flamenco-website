@@ -127,12 +127,13 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
               <div>
-                <div className="aspect-video relative max-w-lg w-full mx-auto">
+                <div className="relative w-full max-w-md mx-auto">
                   <Image
                     src="/Tablao.jpg"
-                    alt="Tablao Performance"
-                    fill
-                    className="object-cover rounded-lg"
+                    alt="Tablao musicians connecting"
+                    width={600}
+                    height={400}
+                    className="object-cover rounded-lg w-full h-auto"
                   />
                 </div>
               </div>
