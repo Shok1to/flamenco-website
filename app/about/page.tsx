@@ -7,33 +7,45 @@ export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <section className="py-12 md:py-16">
-  <div className="container">
-    <div className="text-center mb-10">
-      <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6">
-        What is flamenco?
-      </h1>
-      <div className="max-w-2xl mx-auto">
-        <p className="text-muted-foreground mb-4">
-          Founded in 2010, our tablao brings the authentic spirit of Andalusian flamenco to life. We showcase the finest dancers,
-          singers, and guitarists in an intimate setting that honors this UNESCO-recognized art form.
-        </p>
-        <p className="text-muted-foreground mb-4">
-          Each performance is a unique journey through the passionate expressions of flamenco, from the soulful singing (cante) to
-          the intricate guitar playing (toque) and the powerful dancing (baile).
-        </p>
-        <p className="text-muted-foreground mb-4">
-          Our mission is to preserve and promote the rich tradition of flamenco while creating unforgettable experiences for our
-          guests. We believe in the power of this art form to connect people across cultures and languages through its universal
-          emotional resonance.
-        </p>
-      </div>
-    </div>
-    <Separator className="my-12" />
-    {/* ...rest of your about page... */}
-  </div>
-</section>
-
+      <main className="flex-1">
+        <section className="py-12 md:py-16">
+          <div className="container">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
+              What is flamenco?
+            </h1>
+            <div className="grid gap-6 md:grid-cols-2 items-center">
+              {/* Reduced gap from 12 to 6 */}
+              {/* <div className="relative flex justify-center items-center">
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lunares%20in%20Long%20Rectangle.jpg-XDG4g1JCIgYB5EKskbgJC9Xq2nYnNW.jpeg"
+                  alt="Tablao Flamenco Toronto Logo"
+                  className="max-w-full h-auto rounded-lg"
+                  style={{ maxWidth: "280px" }}
+                />
+              </div> */}
+              <div>
+                {/* <h2 className="text-2xl font-bold mb-4">Our Story</h2> */}
+                <p className="text-muted-foreground mb-4">
+                  Founded in 2010, our tablao brings the authentic spirit of
+                  Andalusian flamenco to life. We showcase the finest dancers,
+                  singers, and guitarists in an intimate setting that honors
+                  this UNESCO-recognized art form.
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  Each performance is a unique journey through the passionate
+                  expressions of flamenco, from the soulful singing (cante) to
+                  the intricate guitar playing (toque) and the powerful dancing
+                  (baile).
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  Our mission is to preserve and promote the rich tradition of
+                  flamenco while creating unforgettable experiences for our
+                  guests. We believe in the power of this art form to connect
+                  people across cultures and languages through its universal
+                  emotional resonance.
+                </p>
+              </div>
+            </div>
 
             <Separator className="my-12" />
 
