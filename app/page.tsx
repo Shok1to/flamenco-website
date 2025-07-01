@@ -11,25 +11,26 @@ import { ContactForm } from "@/components/contact-form"
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <SiteHeader />
+      {/* HEADER overlays the hero image */}
+      <SiteHeader className="absolute w-full z-20 top-0 left-0" />
       <main className="flex-1">
         {/* HERO SECTION */}
         <section
           id="home"
-          className="relative h-screen min-h-[600px] flex items-center justify-center"
+          className="relative min-h-[70vh] flex items-center justify-center"
           style={{
-            backgroundImage: "url('/flamenco.webp')", // Place your photo in /public/flamenco.webp
+            backgroundImage: "url('/flamenco.webp')", // <-- change to your file if needed
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
           <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 text-center text-white w-full px-4 flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-4 drop-shadow-lg">
+          <div className="relative z-10 flex flex-col items-center justify-center w-full text-white text-center">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-3 drop-shadow-lg">
               Next Tablao
             </h1>
-            <p className="mt-2 max-w-[700px] text-lg text-white/90 md:text-xl drop-shadow">
+            <p className="text-lg md:text-2xl font-medium drop-shadow">
               Authentic performances that capture the soul and spirit of Spain
             </p>
           </div>
@@ -115,6 +116,7 @@ export default function Home() {
                   />
                 </div>
               </div>
+
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
                   What is Tablao?
