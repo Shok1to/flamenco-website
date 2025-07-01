@@ -65,7 +65,7 @@ export default function AboutPage() {
             <div className="flex flex-col items-center text-center mb-12">
               <div className="w-40 h-40 relative mb-4">
                 <Image
-                  src="/placeholder.svg?key=0fnfu"
+                  src="/kiyo.jpg"
                   alt="Kiyo"
                   fill
                   className="object-cover rounded-full"
