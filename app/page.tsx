@@ -6,50 +6,36 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { HeroCarousel } from "@/components/hero-carousel"
 import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
-  const heroImages = [
-    {
-      src: "/placeholder.svg?key=itgc3",
-      alt: "Flamenco dancer in red dress",
-    },
-    {
-      src: "/placeholder.svg?key=5warc",
-      alt: "Flamenco dancer with dramatic pose",
-    },
-    {
-      src: "/placeholder.svg?key=otucc",
-      alt: "Passionate flamenco performance",
-    },
-  ]
-
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <section id="home" className="relative">
-          <div
-            className="absolute inset-0 z-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/flamenco.webp')", // Change filename as needed
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
-
-          <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl fade-out">
+        {/* HERO SECTION */}
+        <section
+          id="home"
+          className="relative h-screen min-h-[600px] flex items-center justify-center"
+          style={{
+            backgroundImage: "url('/flamenco.webp')", // Place your photo in /public/flamenco.webp
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative z-10 text-center text-white w-full px-4 flex flex-col items-center justify-center">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-4 drop-shadow-lg">
               Next Tablao
             </h1>
-
-            <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
+            <p className="mt-2 max-w-[700px] text-lg text-white/90 md:text-xl drop-shadow">
               Authentic performances that capture the soul and spirit of Spain
             </p>
           </div>
         </section>
 
+        {/* EVENTS SECTION */}
         <section id="events" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
@@ -115,6 +101,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ABOUT SECTION */}
         <section id="about" className="py-16 bg-slate-50">
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
@@ -128,7 +115,6 @@ export default function Home() {
                   />
                 </div>
               </div>
-
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">
                   What is Tablao?
@@ -157,6 +143,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* CONTACT SECTION */}
         <section id="contact" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">
