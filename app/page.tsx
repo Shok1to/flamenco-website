@@ -30,9 +30,15 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <section id="home" className="relative">
-          <div className="absolute inset-0 z-0">
-            <HeroCarousel images={heroImages} />
+          <div
+            className="absolute inset-0 z-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/flamenco.webp')", // Change filename as needed
+            }}
+          >
+            <div className="absolute inset-0 bg-black/40" />
           </div>
+
           <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl fade-out">
               Next Tablao
