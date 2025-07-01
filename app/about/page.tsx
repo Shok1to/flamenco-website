@@ -58,12 +58,14 @@ export default function AboutPage() {
               </p>
             </div> */}
 
-            <h2 className="text-2xl font-bold mb-4">About Kiyo</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              We work with some of the most talented flamenco artists, each
-              bringing their unique style and interpretation to this traditional
-              art form.
-            </p>
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-bold mb-4">About Kiyo</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                We work with some of the most talented flamenco artists, each
+                bringing their unique style and interpretation to this
+                traditional art form.
+              </p>
+            </div>
 
             <div className="flex flex-col items-center text-center mb-12">
               <div className="w-40 h-40 relative mb-4">
