@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { HeroCarousel } from "@/components/hero-carousel" // Unused in your provided code
+import { HeroCarousel } from "@/components/hero-carousel"
 import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
@@ -30,17 +30,22 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <section id="home" className="relative">
+        <section id="home" className="relative min-h-screen">
+          {" "}
+          {/* Ensure this section takes full viewport height */}
+          {/* This div contains your background image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{
-              backgroundImage: "url('/flamenco.webp')", // Change filename as needed
+              backgroundImage: "url('/flamenco.webp')", // Your background image
             }}
           >
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/40" />{" "}
+            {/* Your overlay */}
           </div>
-
-          {/* Added pt-16 to push content down by header's height */}
+          {/* This div contains your text content (Next Tablao, description) */}
+          {/* We now add pt-16 to push the *text content* down,
+              while the background image covers the whole section including the header area. */}
           <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white pt-16">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl fade-out">
               Next Tablao
@@ -52,6 +57,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Rest of your sections remain the same */}
         <section id="events" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
