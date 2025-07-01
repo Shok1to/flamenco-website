@@ -57,13 +57,12 @@ export default function AboutPage() {
                 traditional art form./placeholder.svg?key=0fnfu
               </p>
             </div> */}
-
-            <div className="text-center mb-12">
-              <h2 className="text-2xl font-bold mb-4">About Kiyo</h2>
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold mb-2">About Kiyo</h2>
             </div>
 
             <div className="flex flex-col items-center text-center mb-12">
-              <div className="w-40 h-40 relative mb-4">
+              <div className="w-56 h-56 relative mb-2">
                 <Image
                   src="/kiyo.jpg"
                   alt="Kiyo"
