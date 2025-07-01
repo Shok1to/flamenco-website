@@ -1,59 +1,46 @@
 /* app/globals.css */
 
-/* Aggressive Reset to force removal of all default spacing */
-/* Ensure html also has these forceful resets */
+/* --- CRITICAL RESET BLOCK --- */
 html {
   margin: 0 !important;
   padding: 0 !important;
-  box-sizing: border-box; /* Good practice for all elements */
+  box-sizing: border-box; /* Ensures padding/border don't add to total size */
 }
 
 body {
   margin: 0 !important;
   padding: 0 !important;
-  /* Make sure body itself takes full height for content flow */
-  min-height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  min-height: 100vh; /* Ensures body can stretch to fill viewport */
+  overflow-x: hidden; /* Prevents unwanted horizontal scrollbar */
 }
 
-/* The __next div is where Next.js mounts your app, ensure it's also flush */
 #__next {
+  /* Next.js root div */
   width: 100%;
-  height: 100%;
+  height: 100%; /* Important for height if it's the root of your layout */
   margin: 0 !important;
   padding: 0 !important;
 }
+/* --- END CRITICAL RESET BLOCK --- */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure no conflicting margin/padding are introduced by these layers */
+/* Ensure this layer doesn't reintroduce margin/padding */
 @layer base {
   * {
     @apply border-border;
-    box-sizing: border-box; /* Apply border-box globally */
+    box-sizing: border-box; /* Apply to all elements */
   }
   body {
     @apply bg-background text-foreground;
-    margin: 0; /* Redundant but safe, just in case */
-    padding: 0; /* Redundant but safe, just in case */
+    /* Explicitly remove if @apply adds any by default, but !important above should handle it */
+    margin: 0;
+    padding: 0;
   }
-}
 
-/* This specific body rule should be fine for font, but keep margin/padding out */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-/* Rest of your @layer base styles (variables) */
-@layer base {
+  /* Your Shadcn/UI variables */
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -122,5 +109,16 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* This rule is fine and can stay */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
