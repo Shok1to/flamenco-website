@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { HeroCarousel } from "@/components/hero-carousel"
+// import { HeroCarousel } from "@/components/hero-carousel" // Unused in your provided code
 import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
@@ -30,22 +30,31 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <section id="home" className="relative min-h-screen">
+        {/* Adjusted section to push content below fixed header */}
+        <section
+          id="home"
+          className="relative min-h-screen pt-16 md:pt-20 lg:pt-24"
+        >
+          {" "}
+          {/* Add padding-top equal to header height + some buffer */}
+          {/* This div contains your background image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{
               backgroundImage: "url('/flamenco.webp')", // Your background image
             }}
           >
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/40" />{" "}
+            {/* Your overlay */}
           </div>
-
-          <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white pt-16">
-            {/* Apply the animation class here */}
+          {/* This div contains your text content (Next Tablao, description) */}
+          {/* Removed pt-16 from here, as it's now on the parent section */}
+          <div className="container relative z-10 flex min-h-[calc(100vh - 4rem)] flex-col items-center justify-center text-center text-white">
+            {" "}
+            {/* Adjust min-h to account for header, 4rem is for h-16 header */}
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
               Next Tablao
             </h1>
-
             <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
               Authentic performances that capture the soul and spirit of Spain
             </p>

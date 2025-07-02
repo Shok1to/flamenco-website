@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type React from "react"
 import "@/app/globals.css"
 import { Inter } from "next/font/google"
@@ -8,8 +9,9 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Tablao Flamenco - Authentic Spanish Flamenco Performances",
-  description: "Experience the passion and artistry of authentic flamenco performances at our intimate tablao venue.",
-    generator: 'v0.dev'
+  description:
+    "Experience the passion and artistry of authentic flamenco performances at our intimate tablao venue.",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -20,7 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>
