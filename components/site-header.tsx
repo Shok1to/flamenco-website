@@ -1,24 +1,24 @@
 // components/site-header.tsx
 import Link from "next/link"
-import Image from "next/image" // Import Image component
+import Image from "next/image" // Ensure Image is imported
 import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
   return (
+    // THIS IS THE KEY LINE FOR FIXING THE HEADER
     <header className="fixed w-full top-0 z-20">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center">
-          {/* Replaced text with Image component for the logo */}
           <Link href="/" className="mr-6">
+            {/* Double-check this path and that the image exists in your public folder */}
             <Image
-              src="/logo.png" // <--- REPLACE THIS WITH THE ACTUAL PATH TO YOUR LOGO IMAGE (e.g., /logo.png or /images/logo.svg)
+              src="/logo.png" // <--- REPLACE THIS WITH YOUR ACTUAL LOGO PATH (e.g., /logo.png)
               alt="Tablao Flamenco Logo"
-              width={100} // Adjust width as needed for your logo
-              height={40} // Adjust height as needed for your logo
-              className="object-contain" // Ensure logo fits within dimensions
+              width={100} // Adjust width as needed
+              height={40} // Adjust height as needed
+              className="object-contain"
             />
           </Link>
-          {/* Navigation Links */}
           <nav className="hidden md:flex items-center space-x-4">
             <Link
               href="#home"

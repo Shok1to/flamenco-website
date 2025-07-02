@@ -5,8 +5,9 @@ import { Calendar, Clock, MapPin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { SiteHeader } from "@/components/site-header"
+// import { SiteHeader } from "@/components/site-header" // <--- REMOVE THIS IMPORT
 import { SiteFooter } from "@/components/site-footer"
+// import { HeroCarousel } from "@/components/hero-carousel" // Unused in your provided code
 import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
@@ -27,24 +28,28 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <SiteHeader />
+      {/* <SiteHeader /> <--- REMOVE SiteHeader from here */}
       <main className="flex-1">
+        {/* Adjusted section to push content below fixed header */}
         <section
           id="home"
           className="relative min-h-screen pt-16 md:pt-20 lg:pt-24"
         >
+          {" "}
+          {/* Add padding-top equal to header height + some buffer */}
+          {/* This div contains your background image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{
               backgroundImage: "url('/flamenco.webp')", // Your background image
             }}
           >
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/40" />{" "}
+            {/* Your overlay */}
           </div>
-
-          {/* Changed justify-center to justify-end and added pb-20 for spacing */}
-          {/* You might need to adjust pb-20 (padding-bottom) to fine-tune vertical position */}
-          <div className="container relative z-10 flex min-h-[calc(100vh - 4rem)] flex-col items-center justify-end text-center text-white pb-20">
+          {/* This div contains your text content (Next Tablao, description) */}
+          {/* Adjusted positioning to push text down */}
+          <div className="container relative z-10 flex flex-col items-center justify-end text-center text-white min-h-[calc(100vh - 4rem)] pt-[40vh] pb-20">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
               Next Tablao
             </h1>

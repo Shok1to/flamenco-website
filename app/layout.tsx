@@ -4,6 +4,7 @@ import "@/app/globals.css"
 import { Inter } from "next/font/google"
 
 import { ThemeProvider } from "@/components/theme-provider"
+import { SiteHeader } from "@/components/site-header" // <--- IMPORT SiteHeader here
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -28,7 +29,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          {/* Render SiteHeader here, ensuring it's a direct child of body */}
+          <SiteHeader />
+          {children} {/* children will now contain your main page content */}
         </ThemeProvider>
       </body>
     </html>

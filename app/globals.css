@@ -1,45 +1,48 @@
 /* app/globals.css */
 
-/* app/globals.css */
+/* --- CRITICAL RESET BLOCK (Ensures no default browser spacing) --- */
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box; /* Ensures padding/border don't add to total size */
+  height: 100%; /* Ensure html can take full height */
+  width: 100%; /* Ensure html can take full width */
+}
 
-/* Aggressive Reset to force removal of all default spacing */
-html,
 body {
   margin: 0 !important;
   padding: 0 !important;
-  box-sizing: border-box; /* Good practice */
-  height: 100%; /* Ensure html and body can take full height */
-  width: 100%; /* Ensure html and body can take full width */
+  min-height: 100vh; /* Ensures body can stretch to fill viewport */
+  overflow-x: hidden; /* Prevents unwanted horizontal scrollbar */
 }
 
-/* Ensure the __next div (Next.js app root) also has no margins/padding */
 #__next {
+  /* Next.js root div */
   width: 100%;
-  height: 100%;
+  height: 100%; /* Important for height if it's the root of your layout */
   margin: 0 !important;
   padding: 0 !important;
 }
+/* --- END CRITICAL RESET BLOCK --- */
 
-/* --- The rest of your globals.css starts here --- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ... your existing body font-family, @layer utilities, and @layer base rules ... */
-/* IMPORTANT: Do NOT have any other margin/padding rules for html, body, or #__next below this initial reset block */
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  /* Ensure no conflicting margin/padding here, though @apply below handles some */
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
+/* Ensure this layer doesn't reintroduce margin/padding for body, applies border-box globally */
 @layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box; /* Apply to all elements */
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Explicitly remove if @apply adds any by default, but !important above should handle it */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Your Shadcn/UI variables */
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -111,12 +114,50 @@ body {
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+/* This rule is fine and can stay */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- ANIMATION CODE (placed within @layer utilities) --- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
-  body {
-    @apply bg-background text-foreground;
-    /* Ensure no margin or padding here that would override the global reset */
+
+  @keyframes zoomInOut {
+    0% {
+      transform: scale(1); /* Original size */
+      opacity: 1; /* Fully visible */
+    }
+    50% {
+      transform: scale(1.05); /* Zoom in slightly */
+      opacity: 1; /* Still fully visible */
+    }
+    100% {
+      transform: scale(1); /* Return to original size */
+      opacity: 1; /* Fully visible */
+    }
+  }
+
+  .animate-zoom-text {
+    animation: zoomInOut 6s ease-in-out infinite; /* 6 seconds duration, ease-in-out timing, infinite loop */
+    will-change: transform; /* Helps browser optimize animation */
+  }
+
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .fade-in-scale {
+    animation: fadeInScale 1.5s ease-out forwards;
   }
 }
+/* --- END ANIMATION CODE --- */
