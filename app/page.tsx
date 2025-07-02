@@ -49,8 +49,8 @@ export default function Home() {
           </div>
 
           {/* This div contains your text content (Next Tablao, description) */}
-          {/* Added pt-[50vh] to push it down further, adjust as needed */}
-          <div className="container relative z-10 flex flex-col items-center justify-end text-center text-white min-h-[calc(100vh - 4rem)] pt-[50vh] pb-20">
+          {/* Adjusted positioning to push text down */}
+          <div className="container relative z-10 flex flex-col items-center justify-end text-center text-white min-h-[calc(100vh - 4rem)] pt-[55vh] pb-20">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
               Next Tablao
             </h1>

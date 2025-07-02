@@ -1,7 +1,5 @@
 /* app/globals.css */
 
-/* app/globals.css */
-
 /* --- CRITICAL RESET BLOCK (Ensures no default browser spacing) --- */
 html {
   margin: 0 !important;
@@ -9,6 +7,9 @@ html {
   box-sizing: border-box; /* Ensures padding/border don't add to total size */
   height: 100%; /* Ensure html can take full height */
   width: 100%; /* Ensure html can take full width */
+  /* Explicitly prevent transform/perspective on html to avoid fixed positioning issues */
+  transform: none !important;
+  perspective: none !important;
 }
 
 body {
@@ -16,10 +17,11 @@ body {
   padding: 0 !important;
   min-height: 100vh; /* Ensures body can stretch to fill viewport */
   overflow-x: hidden; /* Prevents unwanted horizontal scrollbar */
-  /* Remove any 'position: relative' or 'transform' on body if it's there */
-  position: static; /* Ensure default static position unless explicitly set */
-  transform: none; /* Ensure no transform context is accidentally set */
-  perspective: none; /* Ensure no perspective context is accidentally set */
+  /* Explicitly prevent transform/perspective on body to avoid fixed positioning issues */
+  transform: none !important;
+  perspective: none !important;
+  /* Ensure position is not accidentally set to relative, which can interfere */
+  position: static !important;
 }
 
 #__next {
@@ -35,7 +37,7 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-/* ... (the rest of your globals.css, including @layer base and @layer utilities with animations) ... */
+/* Ensure this layer doesn't reintroduce margin/padding for body, applies border-box globally */
 @layer base {
   * {
     @apply border-border;

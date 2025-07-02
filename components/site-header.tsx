@@ -5,18 +5,18 @@ import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
   return (
-    // THIS IS THE KEY LINE FOR FIXING THE HEADER
     <header className="fixed w-full top-0 z-20">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center">
-          <Link href="/" className="mr-6">
-            {/* Double-check this path and that the image exists in your public folder */}
+          <Link href="/" className="mr-6 flex items-center h-full">
+            {" "}
+            {/* Added flex and h-full for better vertical alignment */}
             <Image
-              src="/logo.png" // <--- REPLACE THIS WITH YOUR ACTUAL LOGO PATH (e.g., /logo.png)
+              src="/logo.png" // <--- Confirmed path from your screenshot
               alt="Tablao Flamenco Logo"
-              width={120} // Adjust width as needed
-              height={50} // Adjust height as needed
-              className="object-contain"
+              width={140} // Increased width for better visibility, adjust as needed
+              height={60} // Increased height, adjust as needed
+              className="object-contain" // Keep object-contain
             />
           </Link>
           <nav className="hidden md:flex items-center space-x-4">

@@ -1,39 +1,171 @@
-// app/layout.tsx
-import type React from "react"
-import "@/app/globals.css"
-import { Inter } from "next/font/google"
+/* app/globals.css */
 
-import { ThemeProvider } from "@/components/theme-provider"
-import { SiteHeader } from "@/components/site-header" // <--- IMPORT SiteHeader here
-
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata = {
-  title: "Tablao Flamenco - Authentic Spanish Flamenco Performances",
-  description:
-    "Experience the passion and artistry of authentic flamenco performances at our intimate tablao venue.",
-  generator: "v0.dev",
+/* --- CRITICAL RESET BLOCK (Ensures no default browser spacing) --- */
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box; /* Ensures padding/border don't add to total size */
+  height: 100%; /* Ensure html can take full height */
+  width: 100%; /* Ensure html can take full width */
+  /* Explicitly prevent transform/perspective on html to avoid fixed positioning issues */
+  transform: none !important;
+  perspective: none !important;
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {/* Render SiteHeader here, ensuring it's a direct child of body */}
-          <SiteHeader />
-          {children} {/* children will now contain your main page content */}
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh; /* Ensures body can stretch to fill viewport */
+  overflow-x: hidden; /* Prevents unwanted horizontal scrollbar */
+  /* Explicitly prevent transform/perspective on body to avoid fixed positioning issues */
+  transform: none !important;
+  perspective: none !important;
+  /* Ensure position is not accidentally set to relative, which can interfere */
+  position: static !important;
 }
+
+#__next {
+  /* Next.js root div */
+  width: 100%;
+  height: 100%; /* Important for height if it's the root of your layout */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* --- END CRITICAL RESET BLOCK --- */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure this layer doesn't reintroduce margin/padding for body, applies border-box globally */
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box; /* Apply to all elements */
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Explicitly remove if @apply adds any by default, but !important above should handle it */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Your Shadcn/UI variables */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* This rule is fine and can stay */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- ANIMATION CODE (placed within @layer utilities) --- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  @keyframes zoomInOut {
+    0% {
+      transform: scale(1); /* Original size */
+      opacity: 1; /* Fully visible */
+    }
+    50% {
+      transform: scale(1.05); /* Zoom in slightly */
+      opacity: 1; /* Still fully visible */
+    }
+    100% {
+      transform: scale(1); /* Return to original size */
+      opacity: 1; /* Fully visible */
+    }
+  }
+
+  .animate-zoom-text {
+    animation: zoomInOut 6s ease-in-out infinite; /* 6 seconds duration, ease-in-out timing, infinite loop */
+    will-change: transform; /* Helps browser optimize animation */
+  }
+
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .fade-in-scale {
+      animation: fadeInScale 1.5s ease-out forwards;
+  }
+}
+/* --- END ANIMATION CODE --- */
