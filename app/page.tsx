@@ -31,23 +31,18 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <section id="home" className="relative min-h-screen">
-          {" "}
-          {/* Ensure this section takes full viewport height */}
-          {/* This div contains your background image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{
               backgroundImage: "url('/flamenco.webp')", // Your background image
             }}
           >
-            <div className="absolute inset-0 bg-black/40" />{" "}
-            {/* Your overlay */}
+            <div className="absolute inset-0 bg-black/40" />
           </div>
-          {/* This div contains your text content (Next Tablao, description) */}
-          {/* We now add pt-16 to push the *text content* down,
-              while the background image covers the whole section including the header area. */}
+
           <div className="container relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center text-white pt-16">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl fade-out">
+            {/* Apply the animation class here */}
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
               Next Tablao
             </h1>
 
@@ -57,7 +52,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Rest of your sections remain the same */}
         <section id="events" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
@@ -127,13 +121,12 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
               <div>
-                <div className="relative w-full max-w-md mx-auto">
+                <div className="aspect-video relative max-w-lg w-full mx-auto">
                   <Image
-                    src="/Tablao.jpg"
-                    alt="Tablao musicians connecting"
-                    width={600}
-                    height={400}
-                    className="object-cover rounded-lg w-full h-auto"
+                    src="/placeholder.svg?key=k470x"
+                    alt="Tablao Performance"
+                    fill
+                    className="object-cover rounded-lg"
                   />
                 </div>
               </div>
@@ -143,18 +136,16 @@ export default function Home() {
                   What is Tablao?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-4">
-                  A tablao is an intimate venue for live flamenco, where
-                  dancers, singers, and musicians come together to create
-                  unforgettable performances. Unlike large theaters, a tablao
-                  lets you experience flamenco up close—full of passion,
-                  emotion, and connection between artists and audience.
+                  Founded in 2010, our tablao brings the authentic spirit of
+                  Andalusian flamenco to life. We showcase the finest dancers,
+                  singers, and guitarists in an intimate setting that honors
+                  this UNESCO-recognized art form.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  At our tablao, you’ll find not just incredible artistry but
-                  also a sense of community. Every show is unique, shaped by the
-                  energy in the room and the bond among performers. It’s
-                  flamenco the way it’s meant to be: alive, authentic, and full
-                  of heart.
+                  Each performance is a unique journey through the passionate
+                  expressions of flamenco, from the soulful singing (cante) to
+                  the intricate guitar playing (toque) and the powerful dancing
+                  (baile).
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/about">
