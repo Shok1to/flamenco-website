@@ -18,7 +18,7 @@ body {
   min-height: 100vh; /* Ensures body can stretch to fill viewport */
   overflow-x: hidden; /* Prevents unwanted horizontal scrollbar */
   /* Explicitly prevent transform/perspective on body to avoid fixed positioning issues */
-  transform: none !important;
+  transform: none !important; /* <--- THIS IS THE CRITICAL ADDITION/CONFIRMATION */
   perspective: none !important;
   /* Ensure position is not accidentally set to relative, which can interfere */
   position: static !important;
@@ -50,7 +50,7 @@ body {
     padding: 0;
   }
 
-  /* Your Shadcn/UI variables */
+  /* Your Shadcn/UI variables (kept for completeness, should be fine) */
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;

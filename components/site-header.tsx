@@ -1,6 +1,6 @@
 // components/site-header.tsx
 import Link from "next/link"
-import Image from "next/image" // Ensure Image is imported
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
@@ -9,14 +9,12 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="mr-6 flex items-center h-full">
-            {" "}
-            {/* Added flex and h-full for better vertical alignment */}
             <Image
-              src="/logo.png" // <--- Confirmed path from your screenshot
+              src="/logo.png"
               alt="Tablao Flamenco Logo"
-              width={140} // Increased width for better visibility, adjust as needed
-              height={60} // Increased height, adjust as needed
-              className="object-contain" // Keep object-contain
+              width={160} // Increased width again
+              height={70} // Increased height again
+              className="object-contain"
             />
           </Link>
           <nav className="hidden md:flex items-center space-x-4">
