@@ -169,5 +169,7 @@ body {
   }
 
   .fade-in-scale {
-      animation: fadeInScale 1.5s ease-out forwards;
+    animation: fadeInScale 1.5s ease-out forwards;
   }
+}
+/* --- END ANIMATION CODE --- */
