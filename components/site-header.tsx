@@ -14,8 +14,8 @@ export function SiteHeader() {
             <Image
               src="/logo.png" // <--- REPLACE THIS WITH YOUR ACTUAL LOGO PATH (e.g., /logo.png)
               alt="Tablao Flamenco Logo"
-              width={100} // Adjust width as needed
-              height={40} // Adjust height as needed
+              width={120} // Adjust width as needed
+              height={50} // Adjust height as needed
               className="object-contain"
             />
           </Link>

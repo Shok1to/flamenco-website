@@ -5,9 +5,9 @@ import { Calendar, Clock, MapPin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-// import { SiteHeader } from "@/components/site-header" // <--- REMOVE THIS IMPORT
+// SiteHeader is now imported in layout.tsx, so no need here:
+// import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-// import { HeroCarousel } from "@/components/hero-carousel" // Unused in your provided code
 import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
@@ -28,15 +28,15 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* <SiteHeader /> <--- REMOVE SiteHeader from here */}
+      {/* SiteHeader is rendered in app/layout.tsx now, so remove from here */}
+      {/* <SiteHeader /> */}
       <main className="flex-1">
         {/* Adjusted section to push content below fixed header */}
+        {/* We need margin-top here because the header is fixed globally now */}
         <section
           id="home"
-          className="relative min-h-screen pt-16 md:pt-20 lg:pt-24"
+          className="relative min-h-screen mt-16 md:mt-20 lg:mt-24"
         >
-          {" "}
-          {/* Add padding-top equal to header height + some buffer */}
           {/* This div contains your background image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
@@ -47,9 +47,10 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/40" />{" "}
             {/* Your overlay */}
           </div>
+
           {/* This div contains your text content (Next Tablao, description) */}
-          {/* Adjusted positioning to push text down */}
-          <div className="container relative z-10 flex flex-col items-center justify-end text-center text-white min-h-[calc(100vh - 4rem)] pt-[40vh] pb-20">
+          {/* Added pt-[50vh] to push it down further, adjust as needed */}
+          <div className="container relative z-10 flex flex-col items-center justify-end text-center text-white min-h-[calc(100vh - 4rem)] pt-[50vh] pb-20">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
               Next Tablao
             </h1>
