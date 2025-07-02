@@ -1,5 +1,5 @@
 // app/layout.tsx
-import React from "react" // <--- ADD THIS LINE
+import React from "react" // Essential import for React
 import "@/app/globals.css"
 import { Inter } from "next/font/google"
 

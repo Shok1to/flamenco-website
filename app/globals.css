@@ -1,15 +1,16 @@
 /* app/globals.css */
 
-/* --- CRITICAL RESET BLOCK (Ensures no default browser spacing) --- */
+/* --- CRITICAL RESET BLOCK (Ensures no default browser spacing and fixed positioning context) --- */
 html {
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box; /* Ensures padding/border don't add to total size */
   height: 100%; /* Ensure html can take full height */
   width: 100%; /* Ensure html can take full width */
-  /* Explicitly prevent transform/perspective on html to avoid fixed positioning issues */
+  /* Explicitly prevent transform/perspective/filter on html to avoid fixed positioning issues */
   transform: none !important;
   perspective: none !important;
+  filter: none !important;
 }
 
 body {
@@ -17,11 +18,16 @@ body {
   padding: 0 !important;
   min-height: 100vh; /* Ensures body can stretch to fill viewport */
   overflow-x: hidden; /* Prevents unwanted horizontal scrollbar */
-  /* Explicitly prevent transform/perspective on body to avoid fixed positioning issues */
-  transform: none !important; /* <--- THIS IS THE CRITICAL ADDITION/CONFIRMATION */
+  /* Explicitly prevent transform/perspective/filter on body to avoid fixed positioning issues */
+  transform: none !important;
   perspective: none !important;
+  filter: none !important;
   /* Ensure position is not accidentally set to relative, which can interfere */
   position: static !important;
+  -webkit-transform: none !important; /* For older WebKit browsers */
+  -moz-transform: none !important; /* For Mozilla browsers */
+  -ms-transform: none !important; /* For Internet Explorer 10+ */
+  -o-transform: none !important; /* For Opera browsers */
 }
 
 #__next {
@@ -45,12 +51,11 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    /* Explicitly remove if @apply adds any by default, but !important above should handle it */
     margin: 0;
     padding: 0;
   }
 
-  /* Your Shadcn/UI variables (kept for completeness, should be fine) */
+  /* Your Shadcn/UI variables */
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -122,7 +127,6 @@ body {
   }
 }
 
-/* This rule is fine and can stay */
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -135,22 +139,22 @@ body {
 
   @keyframes zoomInOut {
     0% {
-      transform: scale(1); /* Original size */
-      opacity: 1; /* Fully visible */
+      transform: scale(1);
+      opacity: 1;
     }
     50% {
-      transform: scale(1.05); /* Zoom in slightly */
-      opacity: 1; /* Still fully visible */
+      transform: scale(1.05);
+      opacity: 1;
     }
     100% {
-      transform: scale(1); /* Return to original size */
-      opacity: 1; /* Fully visible */
+      transform: scale(1);
+      opacity: 1;
     }
   }
 
   .animate-zoom-text {
-    animation: zoomInOut 6s ease-in-out infinite; /* 6 seconds duration, ease-in-out timing, infinite loop */
-    will-change: transform; /* Helps browser optimize animation */
+    animation: zoomInOut 6s ease-in-out infinite;
+    will-change: transform;
   }
 
   @keyframes fadeInScale {
@@ -165,7 +169,5 @@ body {
   }
 
   .fade-in-scale {
-    animation: fadeInScale 1.5s ease-out forwards;
+      animation: fadeInScale 1.5s ease-out forwards;
   }
-}
-/* --- END ANIMATION CODE --- */

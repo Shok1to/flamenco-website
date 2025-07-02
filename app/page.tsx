@@ -5,8 +5,6 @@ import { Calendar, Clock, MapPin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-// SiteHeader is now imported in layout.tsx, so no need here:
-// import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ContactForm } from "@/components/contact-form"
 
@@ -28,15 +26,15 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* SiteHeader is rendered in app/layout.tsx now, so remove from here */}
-      {/* <SiteHeader /> */}
       <main className="flex-1">
         {/* Adjusted section to push content below fixed header */}
-        {/* We need margin-top here because the header is fixed globally now */}
+        {/* mt-20 or mt-24 should be sufficient. Removed pt-[55vh] as it might push content too far. */}
         <section
           id="home"
-          className="relative min-h-screen mt-16 md:mt-20 lg:mt-24"
+          className="relative min-h-screen pt-24 md:pt-28 lg:pt-32 flex items-center justify-center"
         >
+          {" "}
+          {/* Added flex and justify-center to hero section */}
           {/* This div contains your background image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
@@ -47,14 +45,13 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/40" />{" "}
             {/* Your overlay */}
           </div>
-
           {/* This div contains your text content (Next Tablao, description) */}
-          {/* Adjusted positioning to push text down */}
-          <div className="container relative z-10 flex flex-col items-center justify-end text-center text-white min-h-[calc(100vh - 4rem)] pt-[55vh] pb-20">
+          <div className="container relative z-10 flex flex-col items-center justify-center text-center text-white py-20">
+            {" "}
+            {/* Changed to justify-center here for vertical alignment */}
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
               Next Tablao
             </h1>
-
             <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
               Authentic performances that capture the soul and spirit of Spain
             </p>
