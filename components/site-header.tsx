@@ -1,36 +1,63 @@
+// components/site-header.tsx
 import Link from "next/link"
-import Image from "next/image"
-
-import { MobileNav } from "@/components/mobile-nav"
+import { Button } from "@/components/ui/button" // Assuming you have a button component
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-28 items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <div className="relative h-24 w-24 overflow-hidden">
-            <Image src="/images/logo.png" alt="Tablao Flamenco Toronto Logo" fill className="object-contain" />
-          </div>
-        </Link>
-        <nav className="hidden md:flex gap-6">
-          <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Home
+    // Changed 'absolute' to 'fixed' to keep it pinned to the viewport
+    <header className="fixed w-full top-0 z-20">
+      <div className="container flex h-16 items-center justify-between">
+        <div className="flex items-center">
+          {/* Your Logo/Site Title - Ensure it's visible against the hero image */}
+          <Link href="/" className="mr-6 text-2xl font-bold text-white">
+            Next Tablao
           </Link>
-          <Link href="/about" className="text-sm font-medium transition-colors hover:text-primary">
-            About
-          </Link>
-          <Link href="/events" className="text-sm font-medium transition-colors hover:text-primary">
-            Events
-          </Link>
-          <Link href="/gallery" className="text-sm font-medium transition-colors hover:text-primary">
-            Gallery
-          </Link>
-          <Link href="/#contact" className="text-sm font-medium transition-colors hover:text-primary">
-            Contact
-          </Link>
-        </nav>
-        <div className="w-24 md:block"></div> {/* Spacer to maintain layout balance */}
-        <MobileNav />
+          {/* Navigation Links - Ensure they are visible against the hero image */}
+          <nav className="hidden md:flex items-center space-x-4">
+            <Link
+              href="#home"
+              className="text-sm font-medium text-white hover:text-gray-300"
+            >
+              Home
+            </Link>
+            <Link
+              href="#events"
+              className="text-sm font-medium text-white hover:text-gray-300"
+            >
+              Events
+            </Link>
+            <Link
+              href="#about"
+              className="text-sm font-medium text-white hover:text-gray-300"
+            >
+              About
+            </Link>
+            <Link
+              href="#contact"
+              className="text-sm font-medium text-white hover:text-gray-300"
+            >
+              Contact
+            </Link>
+            {/* Add Gallery link if needed based on your coffee site */}
+            <Link
+              href="/gallery"
+              className="text-sm font-medium text-white hover:text-gray-300"
+            >
+              Gallery
+            </Link>
+          </nav>
+        </div>
+        <div className="flex items-center space-x-4">
+          {/* Example: A login or call to action button */}
+          <Button variant="ghost" className="text-white hover:bg-white/10">
+            Book Now
+          </Button>
+          {/* Hamburger menu for mobile (you'll need to implement this if not already) */}
+          <button className="md:hidden text-white">
+            {/* You'd typically use an icon here, e.g., <MenuIcon /> from lucide-react */}
+            Menu
+          </button>
+        </div>
       </div>
     </header>
   )
