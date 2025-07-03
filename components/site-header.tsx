@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 export function SiteHeader() {
   return (
     // The header is fixed to the viewport and ensures z-index
-    <header className="absolute top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-sm">
+    <header className="absolute left-0 w-full z-50 bg-black/40 backdrop-blur-sm mt-4">
       <div
         className="container flex items-center justify-between py-2"
         style={{ height: "64px" }}
