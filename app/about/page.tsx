@@ -77,7 +77,7 @@ export default function AboutPage() {
 
             <Separator className="my-12" />
 
-            <div className="text-center">
+            {/* <div className="text-center">
               <h2 className="text-2xl font-bold mb-4">The Art of Flamenco</h2>
               <p className="text-muted-foreground max-w-3xl mx-auto mb-8">
                 Flamenco is a passionate and expressive art form that originated
@@ -108,7 +108,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>
