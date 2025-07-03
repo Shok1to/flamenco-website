@@ -71,7 +71,7 @@ export default function Home() {
                   date: "June 11, 2024",
                   time: "8:00 PM",
                   location: "Tablao Flamenco Theater",
-                  image: "/placeholder.svg?key=k470x",
+                  image: "/events.jpg",
                 },
               ].map((event) => (
                 <Card

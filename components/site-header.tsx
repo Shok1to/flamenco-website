@@ -39,28 +39,28 @@ export function SiteHeader() {
               Home
             </Link>
             <Link
-              href="#events"
-              className="text-base font-medium text-white hover:text-gray-300 transition-colors"
-            >
-              Events
-            </Link>
-            <Link
               href="#about"
               className="text-base font-medium text-white hover:text-gray-300 transition-colors"
             >
               About
             </Link>
             <Link
-              href="#contact"
+              href="#events"
               className="text-base font-medium text-white hover:text-gray-300 transition-colors"
             >
-              Contact
+              Events
             </Link>
             <Link
               href="/gallery"
               className="text-base font-medium text-white hover:text-gray-300 transition-colors"
             >
               Gallery
+            </Link>
+            <Link
+              href="#contact"
+              className="text-base font-medium text-white hover:text-gray-300 transition-colors"
+            >
+              Contact
             </Link>
           </nav>
         )}
