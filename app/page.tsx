@@ -127,12 +127,13 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
               <div>
-                <div className="relative w-full max-w-xl aspect-video rounded-lg overflow-hidden shadow-md mx-auto">
+                <div className="relative w-full max-w-xl aspect-[4/3] rounded-lg overflow-hidden shadow-md mx-auto">
                   <Image
-                    src="/Tablao.jpg"
+                    src="/performance-3.png" // or your correct image filename
                     alt="Tablao Performance"
                     fill
                     className="object-cover rounded-lg"
+                    priority
                   />
                 </div>
               </div>
