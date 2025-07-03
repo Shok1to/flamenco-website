@@ -9,15 +9,15 @@ export function SiteHeader() {
     <header className="absolute top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-sm">
       <div
         className="container flex items-center justify-between py-2"
-        style={{ height: "72px" }}
+        style={{ height: "64px" }}
       >
-        <div className="flex items-center h-full">
+        <div className="flex items-center h-full pt-2">
           <Link href="/" className="flex items-center h-full mr-6">
             <Image
               src="/logo.png"
               alt="Tablao Flamenco Logo"
-              width={140}
-              height={64}
+              width={100}
+              height={48}
               className="object-contain"
             />
           </Link>
