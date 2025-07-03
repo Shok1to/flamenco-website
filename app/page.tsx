@@ -76,22 +76,18 @@ export default function Home() {
               ].map((event) => (
                 <Card
                   key={event.id}
-                  className="overflow-hidden max-w-md w-full"
+                  className="bg-white rounded-lg shadow-md overflow-hidden mx-auto w-full max-w-xs"
                 >
-                  <div
-                    className="relative w-full mx-auto"
-                    style={{ maxWidth: 300, height: 400 }}
-                  >
-                    <Image
-                      src={event.image || "/placeholder.svg"}
-                      alt={event.title}
-                      fill
-                      className="object-contain rounded-lg bg-white"
-                      priority
-                    />
-                  </div>
-
-                  <CardContent className="p-6">
+                  {/* Remove any py- or p- from here */}
+                  <Image
+                    src={event.image || "/placeholder.svg"}
+                    alt={event.title}
+                    width={300} // set your width
+                    height={400} // set your height, adjust as needed for your poster shape
+                    className="rounded-t-lg bg-white w-full block"
+                    priority
+                  />
+                  <CardContent className="p-4">
                     <h3 className="text-xl font-bold mb-2">{event.title}</h3>
                     <div className="flex items-center text-sm text-muted-foreground mb-1">
                       <Calendar className="mr-2 h-4 w-4" />
