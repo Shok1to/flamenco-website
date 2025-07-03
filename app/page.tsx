@@ -76,11 +76,11 @@ export default function Home() {
               ].map((event) => (
                 <Card
                   key={event.id}
-                  className="overflow-hidden max-w-md w-full"
+                  className="bg-white rounded-lg shadow-md overflow-hidden mx-auto w-full max-w-xs"
                 >
                   <div
-                    className="relative w-full mx-auto"
-                    style={{ maxWidth: 300, height: 400 }}
+                    style={{ width: "100%", height: 360 }}
+                    className="relative"
                   >
                     <Image
                       src={event.image || "/placeholder.svg"}
@@ -90,8 +90,7 @@ export default function Home() {
                       priority
                     />
                   </div>
-
-                  <CardContent className="p-6">
+                  <CardContent className="p-4">
                     <h3 className="text-xl font-bold mb-2">{event.title}</h3>
                     <div className="flex items-center text-sm text-muted-foreground mb-1">
                       <Calendar className="mr-2 h-4 w-4" />
