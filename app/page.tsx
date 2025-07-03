@@ -127,7 +127,7 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
               <div>
-                <div className="w-full max-w-xl aspect-video rounded-lg overflow-hidden shadow-md">
+                <div className="w-full max-w-xl aspect-video rounded-lg overflow-hidden shadow-md mx-auto">
                   <Image
                     src="/Tablao.jpg"
                     alt="Tablao Performance"
