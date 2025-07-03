@@ -158,7 +158,6 @@ export function SiteFooter() {
           </div>
         </div>
         <Separator className="my-8 bg-white/20" />
-        <Separator className="my-8 bg-white/20" />
         <div className="flex justify-center items-center">
           <p className="text-white/80 text-sm text-center w-full">
             © 2025 Tablao Flamenco Toronto. All rights reserved.
