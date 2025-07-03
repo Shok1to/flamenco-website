@@ -16,7 +16,7 @@ export function SiteFooter() {
             <div className="flex items-center justify-center mb-6">
               <div className="relative h-32 w-32 overflow-hidden">
                 <Image
-                  src="/images/logo.png"
+                  src="/logo.png"
                   alt="Tablao Flamenco Toronto Logo"
                   fill
                   className="object-contain"
