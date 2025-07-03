@@ -1,4 +1,3 @@
-// app/page.tsx
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, MapPin } from "lucide-react"
@@ -9,46 +8,47 @@ import { SiteFooter } from "@/components/site-footer"
 import { ContactForm } from "@/components/contact-form"
 
 export default function Home() {
-  const heroImages = [
+  // Events array, just add more if needed!
+  const events = [
     {
-      src: "/placeholder.svg?key=itgc3",
-      alt: "Flamenco dancer in red dress",
+      id: 1,
+      title: "Aliali Flamenco",
+      date: "May 18, 2025",
+      time: "3:30 PM",
+      location: "RIVOLI",
+      image: "/events.jpg",
+      description:
+        "Experience an unforgettable night of authentic flamenco with our talented dancers and musicians.",
     },
-    {
-      src: "/placeholder.svg?key=5warc",
-      alt: "Flamenco dancer with dramatic pose",
-    },
-    {
-      src: "/placeholder.svg?key=otucc",
-      alt: "Passionate flamenco performance",
-    },
+    // If you want to add a second event, copy and edit this object!
+    // {
+    //   id: 2,
+    //   title: "Noche de Flamenco",
+    //   date: "June 11, 2025",
+    //   time: "8:00 PM",
+    //   location: "Tablao Flamenco Theater",
+    //   image: "/another-event.jpg",
+    //   description: "Another amazing flamenco night.",
+    // },
   ]
 
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
-        {/* Adjusted section to push content below fixed header */}
-        {/* mt-20 or mt-24 should be sufficient. Removed pt-[55vh] as it might push content too far. */}
+        {/* HERO SECTION */}
         <section
           id="home"
           className="relative min-h-screen pt-24 md:pt-28 lg:pt-32 flex items-center justify-center"
         >
-          {" "}
-          {/* Added flex and justify-center to hero section */}
-          {/* This div contains your background image */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{
-              backgroundImage: "url('/flamenco.webp')", // Your background image
+              backgroundImage: "url('/flamenco.webp')",
             }}
           >
-            <div className="absolute inset-0 bg-black/40" />{" "}
-            {/* Your overlay */}
+            <div className="absolute inset-0 bg-black/40" />
           </div>
-          {/* This div contains your text content (Next Tablao, description) */}
           <div className="container relative z-10 flex flex-col items-center justify-center text-center text-white py-20">
-            {" "}
-            {/* Changed to justify-center here for vertical alignment */}
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
               Next Tablao
             </h1>
@@ -58,37 +58,32 @@ export default function Home() {
           </div>
         </section>
 
+        {/* EVENTS SECTION - SIDE-BY-SIDE POSTER */}
         <section id="events" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
               Next Tablao
             </h2>
-            <div className="flex justify-center">
-              {[
-                {
-                  id: 1,
-                  title: "Aliali Flamenco",
-                  date: "May 18, 2025",
-                  time: "3:30 PM",
-                  location: "RIVOLI",
-                  image: "/events.jpg",
-                },
-              ].map((event) => (
-                <Card
+            <div className="flex flex-col gap-10 max-w-4xl mx-auto">
+              {events.map((event) => (
+                <div
                   key={event.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden mx-auto w-full max-w-xs"
+                  className="grid md:grid-cols-2 gap-8 items-center bg-white rounded-lg shadow-md p-6"
                 >
-                  {/* Remove any py- or p- from here */}
-                  <Image
-                    src={event.image || "/placeholder.svg"}
-                    alt={event.title}
-                    width={300} // set your width
-                    height={400} // set your height, adjust as needed for your poster shape
-                    className="rounded-t-lg bg-white w-full block"
-                    priority
-                  />
-                  <CardContent className="p-4">
-                    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+                  {/* IMAGE LEFT */}
+                  <div className="flex justify-center">
+                    <Image
+                      src={event.image || "/placeholder.svg"}
+                      alt={event.title}
+                      width={300}
+                      height={400}
+                      className="rounded-lg bg-white"
+                      priority
+                    />
+                  </div>
+                  {/* DETAILS RIGHT */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
                     <div className="flex items-center text-sm text-muted-foreground mb-1">
                       <Calendar className="mr-2 h-4 w-4" />
                       <span>{event.date}</span>
@@ -101,17 +96,14 @@ export default function Home() {
                       <MapPin className="mr-2 h-4 w-4" />
                       <span>{event.location}</span>
                     </div>
-                    <p className="text-sm mb-4">
-                      Experience an unforgettable night of authentic flamenco
-                      with our talented dancers and musicians.
-                    </p>
+                    <p className="text-base mb-4">{event.description}</p>
                     <Link href={`/events/${event.id}`}>
-                      <Button className="w-full bg-flamenco hover:bg-flamenco-hover">
+                      <Button className="bg-flamenco hover:bg-flamenco-hover">
                         Book Now
                       </Button>
                     </Link>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
             <div className="mt-10 text-center">
@@ -124,6 +116,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ABOUT SECTION */}
         <section id="about" className="py-16 bg-slate-50">
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
@@ -167,6 +160,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* CONTACT SECTION */}
         <section id="contact" className="py-16 bg-white">
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-center mb-12">
