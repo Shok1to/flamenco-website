@@ -16,8 +16,8 @@ export function SiteHeader() {
             <Image
               src="/logo.png"
               alt="Tablao Flamenco Logo"
-              width={150} // Try 150 or 160
-              height={60} // Try 60-64 (not 80)
+              width={150}
+              height={64}
               className="object-contain"
             />
           </Link>
