@@ -127,9 +127,9 @@ export default function Home() {
           <div className="container">
             <div className="grid gap-6 md:grid-cols-2 items-center">
               <div>
-                <div className="aspect-video relative max-w-lg w-full mx-auto">
+                <div className="relative w-full max-w-xl aspect-video rounded-lg overflow-hidden shadow-md mx-auto">
                   <Image
-                    src="/placeholder.svg?key=k470x"
+                    src="/Tablao.jpg"
                     alt="Tablao Performance"
                     fill
                     className="object-cover rounded-lg"
