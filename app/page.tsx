@@ -129,7 +129,7 @@ export default function Home() {
               <div>
                 <div className="relative w-full max-w-xl aspect-[4/3] rounded-lg overflow-hidden shadow-md mx-auto">
                   <Image
-                    src="/Tablao,jpg"
+                    src="/Tablao.jpg"
                     alt="Tablao Performance"
                     fill
                     className="object-cover rounded-lg"
