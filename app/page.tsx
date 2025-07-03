@@ -80,15 +80,17 @@ export default function Home() {
                 >
                   <div
                     className="relative w-full mx-auto"
-                    style={{ maxWidth: 300, aspectRatio: "3/4" }}
+                    style={{ maxWidth: 300, height: 400 }}
                   >
                     <Image
                       src={event.image || "/placeholder.svg"}
                       alt={event.title}
                       fill
-                      className="object-cover"
+                      className="object-contain rounded-lg bg-white"
+                      priority
                     />
                   </div>
+
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold mb-2">{event.title}</h3>
                     <div className="flex items-center text-sm text-muted-foreground mb-1">
