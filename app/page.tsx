@@ -67,10 +67,10 @@ export default function Home() {
               {[
                 {
                   id: 1,
-                  title: "Noche de Flamenco",
-                  date: "June 11, 2024",
-                  time: "8:00 PM",
-                  location: "Tablao Flamenco Theater",
+                  title: "Aliali Flamenco",
+                  date: "May 18, 2025",
+                  time: "3:30 PM",
+                  location: "RIVOLI",
                   image: "/events.jpg",
                 },
               ].map((event) => (
@@ -78,7 +78,10 @@ export default function Home() {
                   key={event.id}
                   className="overflow-hidden max-w-md w-full"
                 >
-                  <div className="aspect-video relative">
+                  <div
+                    className="relative w-full mx-auto"
+                    style={{ maxWidth: 300, aspectRatio: "3/4" }}
+                  >
                     <Image
                       src={event.image || "/placeholder.svg"}
                       alt={event.title}
