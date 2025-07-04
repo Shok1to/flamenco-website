@@ -65,4 +65,35 @@ export default function EventPage({ params }: { params: { id: string } }) {
                   <Clock className="mr-2 h-5 w-5" />
                   <span>{event.time}</span>
                 </div>
-                <div className="flex items-ce
+                <div className="flex items-center text-muted-foreground mb-4">
+                  <MapPin className="mr-2 h-5 w-5" />
+                  <span>{event.location}</span>
+                </div>
+                <Separator className="my-4" />
+                <h2 className="text-lg font-bold mb-2">About This Event</h2>
+                <p className="text-muted-foreground">{event.description}</p>
+              </div>
+              <div className="w-full max-w-sm mx-auto mt-8">
+                <div className="rounded-lg border bg-card p-6 shadow-sm">
+                  <h3 className="text-lg font-bold mb-4">Book Tickets</h3>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-muted-foreground">
+                      Price per ticket
+                    </span>
+                    <span className="font-bold">€{event.price}</span>
+                  </div>
+                  <BookingForm
+                    eventId={String(event.id)}
+                    eventTitle={event.title}
+                    price={event.price}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <SiteFooter />
+    </div>
+  )
+}
