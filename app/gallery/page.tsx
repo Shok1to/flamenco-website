@@ -10,8 +10,7 @@ export default function GalleryPage() {
       category: "performances",
       description:
         "A vibrant performance by our lead dancer at the annual show.",
-      image:
-        "/placeholder.svg?height=600&width=600&query=female flamenco dancer in red dress on stage",
+      image: "/flamenco.webp",
     },
     {
       id: 2,
@@ -19,8 +18,7 @@ export default function GalleryPage() {
       category: "performances",
       description:
         "A soulful solo by our guitarist, captivating the entire audience.",
-      image:
-        "/placeholder.svg?height=600&width=600&query=flamenco guitarist performing solo on stage",
+      image: "/guitar.jpg",
     },
     {
       id: 3,
@@ -28,16 +26,14 @@ export default function GalleryPage() {
       category: "workshops",
       description:
         "A lively workshop session introducing new dancers to flamenco basics.",
-      image:
-        "/placeholder.svg?height=600&width=600&query=flamenco dance workshop with students",
+      image: "/dance.jpg",
     },
     {
       id: 4,
       title: "Backstage Moments",
       category: "backstage",
       description: "Dancers preparing costumes and makeup before the big show.",
-      image:
-        "/placeholder.svg?height=600&width=600&query=flamenco dancers backstage preparing",
+      image: "/backstage.jpg",
     },
     // Add more images as needed...
   ]
