@@ -6,78 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { events } from "@/lib/events" // <- Import the shared events array
 
 export default function EventsPage() {
-  // This would be fetched from Sanity CMS in the future
-  const events = [
-    {
-      id: 1,
-      title: "Noche de Flamenco",
-      date: "June 15, 2024",
-      time: "8:00 PM",
-      location: "Tablao Flamenco Theater",
-      description:
-        "Experience an unforgettable night of authentic flamenco with our talented dancers and musicians.",
-      image: "/placeholder.svg?key=hiooi",
-      price: 45,
-    },
-    {
-      id: 2,
-      title: "Flamenco Fusion",
-      date: "June 22, 2024",
-      time: "8:00 PM",
-      location: "Tablao Flamenco Theater",
-      description:
-        "A unique blend of traditional flamenco with contemporary influences, creating a mesmerizing experience.",
-      image: "/placeholder.svg?key=aeain",
-      price: 50,
-    },
-    {
-      id: 3,
-      title: "Guitarra y Cante",
-      date: "June 29, 2024",
-      time: "8:00 PM",
-      location: "Tablao Flamenco Theater",
-      description:
-        "An intimate evening focused on the soulful singing and masterful guitar playing of flamenco.",
-      image: "/placeholder.svg?key=cqq01",
-      price: 40,
-    },
-    // {
-    //   id: 4,
-    //   title: "Flamenco Workshop",
-    //   date: "July 5, 2024",
-    //   time: "6:00 PM",
-    //   location: "Tablao Flamenco Studio",
-    //   description:
-    //     "Learn the basics of flamenco dance in this beginner-friendly workshop led by our professional dancers.",
-    //   image: "/placeholder.svg?key=ho18p",
-    //   price: 35,
-    // },
-    // {
-    //   id: 5,
-    //   title: "Andalusian Night",
-    //   date: "July 12, 2024",
-    //   time: "8:00 PM",
-    //   location: "Tablao Flamenco Theater",
-    //   description:
-    //     "A special performance celebrating the rich cultural heritage of Andalusia through flamenco.",
-    //   image: "/placeholder.svg?key=0yjm4",
-    //   price: 45,
-    // },
-    // {
-    //   id: 6,
-    //   title: "Flamenco & Tapas",
-    //   date: "July 19, 2024",
-    //   time: "7:30 PM",
-    //   location: "Tablao Flamenco Theater",
-    //   description:
-    //     "Enjoy authentic Spanish tapas while experiencing the passion of flamenco in this dinner show.",
-    //   image: "/placeholder.svg?key=8b8bo",
-    //   price: 65,
-    // },
-  ]
-
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
