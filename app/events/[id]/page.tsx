@@ -29,60 +29,58 @@ export default function EventPage({ params }: { params: { id: string } }) {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50">
       <SiteHeader />
-      <main className="flex-1 flex flex-col items-center justify-center py-8">
-        <div className="w-full max-w-3xl bg-white rounded-xl shadow-md p-8 flex flex-col md:flex-row gap-8 items-center">
-          {/* Image */}
-          <div className="flex-shrink-0 w-full md:w-72 flex items-center justify-center">
-            <div className="w-60 h-72 relative rounded-lg overflow-hidden bg-white border">
-              <Image
-                src={event.image || "/placeholder.svg"}
-                alt={event.title}
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+      <main className="flex-1 flex flex-col items-center">
+        {/* Photo on top */}
+        <div className="w-full max-w-2xl mt-8">
+          <div className="relative w-full h-80 rounded-xl overflow-hidden bg-white shadow">
+            <Image
+              src={event.image || "/placeholder.svg"}
+              alt={event.title}
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-          {/* Details & Booking */}
-          <div className="flex-1 w-full flex flex-col gap-4">
-            <div>
-              <Link
-                href="/events"
-                className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground mb-2"
-              >
-                <ArrowLeft className="mr-1 h-4 w-4" />
-                Back to Events
-              </Link>
-              <h1 className="text-2xl font-bold mb-1">{event.title}</h1>
-              <div className="flex items-center text-sm text-muted-foreground mb-1">
-                <Calendar className="mr-2 h-4 w-4" />
-                <span>{event.date}</span>
-              </div>
-              <div className="flex items-center text-sm text-muted-foreground mb-1">
-                <Clock className="mr-2 h-4 w-4" />
-                <span>{event.time}</span>
-              </div>
-              <div className="flex items-center text-sm text-muted-foreground mb-2">
-                <MapPin className="mr-2 h-4 w-4" />
-                <span>{event.location}</span>
-              </div>
-              <p className="text-muted-foreground mb-2">{event.description}</p>
+        </div>
+        {/* Event details and booking */}
+        <div className="w-full max-w-2xl flex flex-col md:flex-row gap-8 mt-8">
+          {/* Left: Event Info */}
+          <div className="flex-1">
+            <Link
+              href="/events"
+              className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground mb-2"
+            >
+              <ArrowLeft className="mr-1 h-4 w-4" />
+              Back to Events
+            </Link>
+            <h1 className="text-2xl font-bold mb-2">{event.title}</h1>
+            <div className="flex items-center text-sm text-muted-foreground mb-1">
+              <Calendar className="mr-2 h-4 w-4" />
+              <span>{event.date}</span>
             </div>
-            <div className="mt-2">
-              <div className="rounded-lg border bg-card p-4 shadow-sm w-full">
-                <h3 className="text-md font-bold mb-2">Book Tickets</h3>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-muted-foreground">
-                    Price per ticket
-                  </span>
-                  <span className="font-bold">€{event.price}</span>
-                </div>
-                <BookingForm
-                  eventId={event.id}
-                  eventTitle={event.title}
-                  price={event.price}
-                />
+            <div className="flex items-center text-sm text-muted-foreground mb-1">
+              <Clock className="mr-2 h-4 w-4" />
+              <span>{event.time}</span>
+            </div>
+            <div className="flex items-center text-sm text-muted-foreground mb-3">
+              <MapPin className="mr-2 h-4 w-4" />
+              <span>{event.location}</span>
+            </div>
+            <p className="text-muted-foreground mb-4">{event.description}</p>
+          </div>
+          {/* Right: Book Tickets */}
+          <div className="w-full md:w-80 flex flex-col">
+            <div className="rounded-lg border bg-card p-6 shadow-sm w-full">
+              <h3 className="text-md font-bold mb-2">Book Tickets</h3>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-muted-foreground">Price per ticket</span>
+                <span className="font-bold">€{event.price}</span>
               </div>
+              <BookingForm
+                eventId={event.id}
+                eventTitle={event.title}
+                price={event.price}
+              />
             </div>
           </div>
         </div>
