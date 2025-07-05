@@ -7,6 +7,31 @@ import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { events } from "@/lib/events"
+import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+
+function FadeInOutTitle() {
+  const [show, setShow] = useState(true)
+  useEffect(() => {
+    const timer = setTimeout(() => setShow(false), 2000) // Show for 2 seconds
+    return () => clearTimeout(timer)
+  }, [])
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12"
+        >
+          Next Tablao
+        </motion.h1>
+      )}
+    </AnimatePresence>
+  )
+}
 
 export default function EventsPage() {
   return (
@@ -15,9 +40,8 @@ export default function EventsPage() {
       <main className="flex-1">
         <section className="py-12 md:py-16 bg-slate-50">
           <div className="container flex flex-col items-center">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
-              Next Tablao
-            </h1>
+            <FadeInOutTitle />
+
             {/* CENTERED GRID WRAPPER */}
             <div className="w-full flex justify-center">
               <div className="grid gap-6 md:grid-cols-2 max-w-3xl w-full">
