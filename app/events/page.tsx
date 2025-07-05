@@ -11,16 +11,23 @@ import { events } from "@/lib/events"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
-function FadeInOutTitle() {
+export function FadeInOutTitle() {
+  // Ensures animation works after hydration in Next.js App Router!
+  const [mounted, setMounted] = useState(false)
   const [show, setShow] = useState(true)
+
   useEffect(() => {
-    const timer = setTimeout(() => setShow(false), 2000) // 2 sec visible
+    setMounted(true)
+    if (!show) return
+    const timer = setTimeout(() => setShow(false), 2000)
     return () => clearTimeout(timer)
-  }, [])
+  }, [show])
+
+  if (!mounted) return null
 
   return (
     <AnimatePresence>
-      {show ? (
+      {show && (
         <motion.h1
           key="tablao-title"
           initial={{ opacity: 0 }}
@@ -31,7 +38,7 @@ function FadeInOutTitle() {
         >
           Next Tablao
         </motion.h1>
-      ) : null}
+      )}
     </AnimatePresence>
   )
 }
