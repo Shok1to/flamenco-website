@@ -14,13 +14,15 @@ import { motion, AnimatePresence } from "framer-motion"
 function FadeInOutTitle() {
   const [show, setShow] = useState(true)
   useEffect(() => {
-    const timer = setTimeout(() => setShow(false), 2000) // Show for 2 seconds
+    const timer = setTimeout(() => setShow(false), 2000) // 2 sec visible
     return () => clearTimeout(timer)
   }, [])
+
   return (
     <AnimatePresence>
-      {show && (
+      {show ? (
         <motion.h1
+          key="tablao-title"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -29,7 +31,7 @@ function FadeInOutTitle() {
         >
           Next Tablao
         </motion.h1>
-      )}
+      ) : null}
     </AnimatePresence>
   )
 }
