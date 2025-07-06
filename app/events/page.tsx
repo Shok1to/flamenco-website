@@ -1,28 +1,28 @@
 "use client"
 import { useEffect, useState } from "react"
 
-export default function EventsPage() {
-  const [showTitle, setShowTitle] = useState(true)
+export default function TestDisappear() {
+  const [show, setShow] = useState(true)
   useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(false), 3000)
+    const timer = setTimeout(() => setShow(false), 3000)
     return () => clearTimeout(timer)
   }, [])
   return (
     <div>
-      {showTitle && (
+      {show && (
         <h1
           className="fade-in-out"
           style={{
-            fontSize: "3rem",
-            color: "red",
             background: "yellow",
+            color: "red",
             textAlign: "center",
+            fontSize: "3rem",
           }}
         >
-          Next Tablao
+          THIS SHOULD DISAPPEAR
         </h1>
       )}
-      <div>Test below</div>
+      <div>Below test text</div>
     </div>
   )
 }
