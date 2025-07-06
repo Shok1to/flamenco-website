@@ -131,47 +131,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* --- ANIMATION CODE (placed within @layer utilities) --- @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  @keyframes zoomInOut {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  } */
-
-/* .animate-zoom-text {
-    animation: zoomInOut 6s ease-in-out infinite;
-    will-change: transform;
-  } */
-
-/* @keyframes fadeInScale {
-    0% {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .fade-in-scale {
-    animation: fadeInScale 1.5s ease-out forwards;
-  }
-} */
-/* --- END ANIMATION CODE --- */
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -186,7 +145,7 @@ body {
     opacity: 0;
   }
 }
-
 .fade-in-out {
   animation: fadeInOut 3s forwards;
+  will-change: opacity;
 }
