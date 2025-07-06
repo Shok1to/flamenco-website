@@ -3,60 +3,64 @@
 import React, { useEffect, useState } from "react"
 
 export default function EventsPage() {
-  const [shouldRenderText, setShouldRenderText] = useState(false) // Controls if the H1 is in the DOM at all
-  const [opacity, setOpacity] = useState(0) // Controls the actual opacity value
-  const [display, setDisplay] = useState("none") // Controls display: 'block' / 'none'
+  const [isLoading, setIsLoading] = useState(true) // New state to manage initial client-side rendering
+  const [opacity, setOpacity] = useState(0)
+  const [display, setDisplay] = useState("none")
 
   useEffect(() => {
-    // Phase 1: After a very brief delay, add the H1 to the DOM and set initial opacity to 0
-    // This gives React time to render the rest of the page before we introduce the H1.
-    // Setting display to 'block' here makes it visible in terms of layout but still transparent.
-    const initialRenderTimer = setTimeout(() => {
-      setShouldRenderText(true) // Now the H1 will appear in the render tree
-      setOpacity(0) // Ensure it starts at 0 opacity
-      setDisplay("block") // Make it part of the layout
-    }, 100) // Give it a very small head start
+    // Phase 0: Ensure client-side JavaScript has loaded and Hydration is complete
+    // This timer ensures the component starts its logic ONLY when client-side is ready.
+    const initialClientLoadTimer = setTimeout(() => {
+      setIsLoading(false) // Client-side logic can now proceed
+    }, 50) // A small delay to allow hydration to complete
 
-    // Phase 2: After it's in the DOM and transparent, start the fade-in
-    // This timer fires shortly after initialRenderTimer, allowing the browser to paint it at opacity 0 first
-    const fadeInTimer = setTimeout(() => {
-      setOpacity(1) // Trigger fade-in to opacity 1
-    }, 200) // e.g., 100ms (initial render delay) + 100ms (pre-animation delay) = 200ms
+    let fadeInTimer, fadeOutTriggerTimer, hideDisplayTimer
 
-    // Phase 3: After being visible for a duration, start fading out
-    // Total time before fade-out starts:
-    // 200ms (fade-in start) + 2000ms (visible duration) = 2200ms
-    const fadeOutTriggerTimer = setTimeout(() => {
-      setOpacity(0) // Trigger the fade out
-    }, 2200)
+    if (!isLoading) {
+      // Phase 1: After isLoading is false, set the initial state for the animation
+      // This ensures the H1 is in the DOM but fully transparent before animation starts.
+      setDisplay("block")
+      setOpacity(0)
 
-    // Phase 4: After the fade-out transition completes, remove from DOM (display: none)
-    // Fade-out transition duration (set in inline style) is 1s.
-    // Total time until display: none:
-    // 2200ms (fade-out start) + 1000ms (fade-out duration) = 3200ms
-    const hideDisplayTimer = setTimeout(() => {
-      setDisplay("none") // Remove from layout
-      setShouldRenderText(false) // Optionally, remove from DOM entirely for cleanup
-    }, 3200)
+      // Phase 2: Start the fade-in after a very brief pause (allowing opacity:0 to settle)
+      fadeInTimer = setTimeout(() => {
+        setOpacity(1) // Trigger fade-in
+      }, 100) // Wait 100ms after isLoading is false
 
-    // Cleanup function for useEffect to clear timers
+      // Phase 3: After being visible for a duration, start fading out
+      // Calculate based on fade-in start + visible duration
+      // 100ms (fade-in start) + 2000ms (visible duration) = 2100ms
+      fadeOutTriggerTimer = setTimeout(() => {
+        setOpacity(0) // Trigger fade out
+      }, 2100)
+
+      // Phase 4: After fade-out transition completes, remove from DOM
+      // Fade-out transition duration (inline style) is 1s.
+      // Total time until display: none:
+      // 2100ms (fade-out start) + 1000ms (fade-out duration) = 3100ms
+      hideDisplayTimer = setTimeout(() => {
+        setDisplay("none") // Remove from layout
+      }, 3100)
+    }
+
+    // Cleanup function for useEffect
     return () => {
-      clearTimeout(initialRenderTimer)
-      clearTimeout(fadeInTimer)
+      clearTimeout(initialClientLoadTimer)
+      clearTimeout(fadeInTimer) // Clear if they were set
       clearTimeout(fadeOutTriggerTimer)
       clearTimeout(hideDisplayTimer)
     }
-  }, []) // Empty dependency array means this effect runs only once after the initial render
+  }, [isLoading]) // Rerun effect when isLoading state changes
 
-  // Only render the H1 if shouldRenderText is true.
-  if (!shouldRenderText) {
-    return null // Don't render the H1 until the first timer fires
+  // Only render the H1 element once isLoading is false
+  if (isLoading || display === "none") {
+    return null // Don't render until ready, or if it's supposed to be hidden
   }
 
   return (
     <div>
       <h1
-        key="next-tablao-animation-inline-v3" // Changed key to ensure a fresh mount if needed
+        key="next-tablao-animation-inline-v4" // New key for fresh render
         style={{
           fontSize: "3rem",
           textAlign: "center",
@@ -71,7 +75,6 @@ export default function EventsPage() {
           display: display, // Controls display: 'block' / 'none'
 
           // Transitions for opacity changes
-          // Apply a transition for both directions
           transition:
             opacity === 1 ? "opacity 0.5s ease-in" : "opacity 1s ease-out",
         }}
