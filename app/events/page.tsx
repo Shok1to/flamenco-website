@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, MapPin } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
@@ -14,7 +13,7 @@ export default function EventsPage() {
   const [showTitle, setShowTitle] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(false), 3000) // matches 3s CSS animation
+    const timer = setTimeout(() => setShowTitle(false), 3000) // 3s = 3000ms
     return () => clearTimeout(timer)
   }, [])
 
