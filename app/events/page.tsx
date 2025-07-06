@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, MapPin } from "lucide-react"
@@ -8,50 +9,26 @@ import { Card, CardContent } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { events } from "@/lib/events"
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-
-export function FadeInOutTitle() {
-  // Ensures animation works after hydration in Next.js App Router!
-  const [mounted, setMounted] = useState(false)
-  const [show, setShow] = useState(true)
-
-  useEffect(() => {
-    setMounted(true)
-    if (!show) return
-    const timer = setTimeout(() => setShow(false), 2000)
-    return () => clearTimeout(timer)
-  }, [show])
-
-  if (!mounted) return null
-
-  return (
-    <AnimatePresence>
-      {show && (
-        <motion.h1
-          key="tablao-title"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12"
-        >
-          Next Tablao
-        </motion.h1>
-      )}
-    </AnimatePresence>
-  )
-}
 
 export default function EventsPage() {
+  const [showTitle, setShowTitle] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTitle(false), 3000) // matches 3s animation
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1">
         <section className="py-12 md:py-16 bg-slate-50">
           <div className="container flex flex-col items-center">
-            <FadeInOutTitle />
-
+            {showTitle && (
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 fade-in-out">
+                Next Tablao
+              </h1>
+            )}
             {/* CENTERED GRID WRAPPER */}
             <div className="w-full flex justify-center">
               <div className="grid gap-6 md:grid-cols-2 max-w-3xl w-full">
