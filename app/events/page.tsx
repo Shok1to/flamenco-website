@@ -14,7 +14,7 @@ export default function EventsPage() {
   const [showTitle, setShowTitle] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(false), 3000) // matches 3s animation
+    const timer = setTimeout(() => setShowTitle(false), 3000) // matches 3s CSS animation
     return () => clearTimeout(timer)
   }, [])
 
