@@ -3,51 +3,60 @@
 import React, { useEffect, useState } from "react"
 
 export default function EventsPage() {
-  // State to control the animation and rendering stages
-  // We'll manage opacity directly via style props.
-  const [opacity, setOpacity] = useState(0)
-  const [display, setDisplay] = useState("block") // 'block' or 'none'
+  const [shouldRenderText, setShouldRenderText] = useState(false) // Controls if the H1 is in the DOM at all
+  const [opacity, setOpacity] = useState(0) // Controls the actual opacity value
+  const [display, setDisplay] = useState("none") // Controls display: 'block' / 'none'
 
   useEffect(() => {
-    // Stage 1: Component mounts. Set opacity to 0 immediately.
-    setOpacity(0)
-    setDisplay("block") // Ensure it's displayed but transparent
+    // Phase 1: After a very brief delay, add the H1 to the DOM and set initial opacity to 0
+    // This gives React time to render the rest of the page before we introduce the H1.
+    // Setting display to 'block' here makes it visible in terms of layout but still transparent.
+    const initialRenderTimer = setTimeout(() => {
+      setShouldRenderText(true) // Now the H1 will appear in the render tree
+      setOpacity(0) // Ensure it starts at 0 opacity
+      setDisplay("block") // Make it part of the layout
+    }, 100) // Give it a very small head start
 
-    // Stage 2: Fade in after a very short delay
+    // Phase 2: After it's in the DOM and transparent, start the fade-in
+    // This timer fires shortly after initialRenderTimer, allowing the browser to paint it at opacity 0 first
     const fadeInTimer = setTimeout(() => {
-      setOpacity(1)
-    }, 50) // Small delay to ensure initial opacity:0 is applied
+      setOpacity(1) // Trigger fade-in to opacity 1
+    }, 200) // e.g., 100ms (initial render delay) + 100ms (pre-animation delay) = 200ms
 
-    // Stage 3: After being visible for a duration, start fading out
-    // Total time before fade-out starts: 50ms (initial delay) + 2000ms (visible duration) = 2050ms
+    // Phase 3: After being visible for a duration, start fading out
+    // Total time before fade-out starts:
+    // 200ms (fade-in start) + 2000ms (visible duration) = 2200ms
     const fadeOutTriggerTimer = setTimeout(() => {
       setOpacity(0) // Trigger the fade out
-    }, 2050)
+    }, 2200)
 
-    // Stage 4: After the fade-out transition completes, hide completely (display: none)
+    // Phase 4: After the fade-out transition completes, remove from DOM (display: none)
     // Fade-out transition duration (set in inline style) is 1s.
-    // Total time until display: none: 2050ms (fade-out start) + 1000ms (fade-out duration) = 3050ms
+    // Total time until display: none:
+    // 2200ms (fade-out start) + 1000ms (fade-out duration) = 3200ms
     const hideDisplayTimer = setTimeout(() => {
-      setDisplay("none")
-    }, 3050)
+      setDisplay("none") // Remove from layout
+      setShouldRenderText(false) // Optionally, remove from DOM entirely for cleanup
+    }, 3200)
 
     // Cleanup function for useEffect to clear timers
     return () => {
+      clearTimeout(initialRenderTimer)
       clearTimeout(fadeInTimer)
       clearTimeout(fadeOutTriggerTimer)
       clearTimeout(hideDisplayTimer)
     }
-  }, []) // Run only once on initial mount
+  }, []) // Empty dependency array means this effect runs only once after the initial render
+
+  // Only render the H1 if shouldRenderText is true.
+  if (!shouldRenderText) {
+    return null // Don't render the H1 until the first timer fires
+  }
 
   return (
     <div>
-      {/*
-        Using a key here ensures that if this component's parent re-renders and passes
-        a new key, the H1 element itself will be unmounted and remounted,
-        forcing the animation sequence to restart.
-      */}
       <h1
-        key="next-tablao-animation-inline"
+        key="next-tablao-animation-inline-v3" // Changed key to ensure a fresh mount if needed
         style={{
           fontSize: "3rem",
           textAlign: "center",
@@ -59,15 +68,12 @@ export default function EventsPage() {
 
           // Crucial: Direct inline styles for animation control
           opacity: opacity, // Controlled by state
-          display: display, // Controlled by state (to remove from layout after fade)
+          display: display, // Controls display: 'block' / 'none'
 
           // Transitions for opacity changes
+          // Apply a transition for both directions
           transition:
             opacity === 1 ? "opacity 0.5s ease-in" : "opacity 1s ease-out",
-          // If opacity is 1 (fading in), use 0.5s transition.
-          // If opacity is 0 (fading out or initial), use 1s transition.
-          // The initial opacity (0) will apply instantly due to the 50ms delay
-          // ensuring the first transition to 1 is the one we want to see.
         }}
       >
         Next Tablao
