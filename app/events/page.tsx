@@ -13,7 +13,7 @@ export default function EventsPage() {
   const [showTitle, setShowTitle] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(false), 3000) // 3s = 3000ms
+    const timer = setTimeout(() => setShowTitle(false), 3000)
     return () => clearTimeout(timer)
   }, [])
 
@@ -28,7 +28,6 @@ export default function EventsPage() {
                 Next Tablao
               </h1>
             )}
-            {/* CENTERED GRID WRAPPER */}
             <div className="w-full flex justify-center">
               <div className="grid gap-6 md:grid-cols-2 max-w-3xl w-full">
                 {events.map((event) => (
