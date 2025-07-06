@@ -2,38 +2,43 @@
 import React, { useEffect, useState } from "react"
 
 export default function EventsPage() {
-  const [animationClass, setAnimationClass] = useState("initial-hidden") // State to control CSS class
-  const [shouldRender, setShouldRender] = useState(true) // Still used for eventual DOM removal
+  const [shouldAnimate, setShouldAnimate] = useState(false) // Controls animation start
+  const [shouldRender, setShouldRender] = useState(true) // Controls DOM removal
 
   useEffect(() => {
-    // Phase 1: Make it visible and start the fade-in
-    const showTimer = setTimeout(() => {
-      setAnimationClass("fade-in-out") // This class will contain the animation
-    }, 100) // Small delay to ensure initial-hidden is applied first
+    // Phase 1: After a very brief moment, set shouldAnimate to true.
+    // This allows the initial opacity to be set before the animation class is applied.
+    const initialDelayTimer = setTimeout(() => {
+      setShouldAnimate(true)
+    }, 50) // A small delay (e.g., 50ms) to ensure initial render is complete
 
-    // Phase 2: After the animation completes, remove from DOM
-    // The animation is 3s. So, after 3s from 'fade-in-out' start.
-    // Total time from component mount: 100ms (delay) + 3000ms (animation duration) = ~3100ms
+    // Phase 2: After the full animation duration, remove the element from the DOM.
+    // The animation is 3s. So, ~3050ms from component mount.
     const removalTimer = setTimeout(() => {
       setShouldRender(false)
-    }, 3100) // Roughly animation duration + initial delay
+    }, 3050) // Total animation duration + initial delay
 
     return () => {
-      clearTimeout(showTimer)
+      clearTimeout(initialDelayTimer)
       clearTimeout(removalTimer)
     }
-  }, []) // Run only once on mount
+  }, []) // Run only once on component mount
 
   if (!shouldRender) {
     return null // Don't render anything if it should no longer be in the DOM
   }
 
+  // Use a key to force React to remount the H1 if we were to re-trigger it,
+  // though for this specific "once and disappear" scenario, it's less critical
+  // but good to keep in mind for future animation scenarios.
   return (
     <div>
       <h1
-        className={animationClass} // Apply the class based on state
+        key="next-tablao-animation" // Add a key to force remount if this component was repeatedly rendered
+        className={
+          shouldAnimate ? "fade-in-out-animated" : "fade-in-out-initial"
+        }
         style={{
-          // These styles can remain inline or be moved to CSS if they are fixed
           fontSize: "3rem",
           textAlign: "center",
           color: "white",
