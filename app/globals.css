@@ -149,7 +149,3 @@ body {
   animation: fadeInOut 3s forwards;
   will-change: opacity;
 }
-
-body {
-  background: lime !important;
-}
