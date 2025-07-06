@@ -1,60 +1,53 @@
-"use client" // This directive is important for Next.js to treat this as a client component
+"use client"
 
 import React, { useEffect, useState } from "react"
 
 export default function EventsPage() {
   // State to control the animation and rendering stages
-  // 'hidden-initial': Element is in the DOM but hidden (opacity 0), no transition yet.
-  // 'visible': Element is fading in or fully visible (opacity 1), with a fade-in transition.
-  // 'fading-out': Element is fading out (opacity 0), with a fade-out transition.
-  // 'removed': Element is no longer rendered in the DOM.
-  const [stage, setStage] = useState("hidden-initial")
+  // We'll manage opacity directly via style props.
+  const [opacity, setOpacity] = useState(0)
+  const [display, setDisplay] = useState("block") // 'block' or 'none'
 
   useEffect(() => {
-    // Stage 1: Component mounts. It's initially 'hidden-initial'.
-    // After a very brief delay, transition it to 'visible' to start the fade-in.
-    // This small delay (e.g., 50ms) ensures the 'hidden-initial' opacity:0 is applied first
-    // before the 'visible' class triggers its transition.
-    const fadeInTimer = setTimeout(() => {
-      setStage("visible")
-    }, 50)
+    // Stage 1: Component mounts. Set opacity to 0 immediately.
+    setOpacity(0)
+    setDisplay("block") // Ensure it's displayed but transparent
 
-    // Stage 2: After the element has been 'visible' for a certain duration,
-    // transition it to 'fading-out'.
-    // Let's assume the fade-in takes ~0.5s (from CSS) and you want it visible for ~2s.
-    // So, total time before starting fade-out = 50ms (initial delay) + 2000ms (visible duration) = 2050ms
+    // Stage 2: Fade in after a very short delay
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1)
+    }, 50) // Small delay to ensure initial opacity:0 is applied
+
+    // Stage 3: After being visible for a duration, start fading out
+    // Total time before fade-out starts: 50ms (initial delay) + 2000ms (visible duration) = 2050ms
     const fadeOutTriggerTimer = setTimeout(() => {
-      setStage("fading-out")
+      setOpacity(0) // Trigger the fade out
     }, 2050)
 
-    // Stage 3: After the 'fading-out' transition completes, remove the element from the DOM.
-    // If 'fading-out' transition is 1s (from CSS), then removal time =
-    // 2050ms (when fade-out starts) + 1000ms (fade-out duration) = 3050ms
-    const removalTimer = setTimeout(() => {
-      setStage("removed")
+    // Stage 4: After the fade-out transition completes, hide completely (display: none)
+    // Fade-out transition duration (set in inline style) is 1s.
+    // Total time until display: none: 2050ms (fade-out start) + 1000ms (fade-out duration) = 3050ms
+    const hideDisplayTimer = setTimeout(() => {
+      setDisplay("none")
     }, 3050)
 
-    // Cleanup function for useEffect to clear timers if the component unmounts early
+    // Cleanup function for useEffect to clear timers
     return () => {
       clearTimeout(fadeInTimer)
       clearTimeout(fadeOutTriggerTimer)
-      clearTimeout(removalTimer)
+      clearTimeout(hideDisplayTimer)
     }
-  }, []) // Empty dependency array means this effect runs only once after the initial render
-
-  // If the stage is 'removed', don't render the H1 element at all.
-  if (stage === "removed") {
-    return null
-  }
+  }, []) // Run only once on initial mount
 
   return (
     <div>
+      {/*
+        Using a key here ensures that if this component's parent re-renders and passes
+        a new key, the H1 element itself will be unmounted and remounted,
+        forcing the animation sequence to restart.
+      */}
       <h1
-        // Dynamic class names based on the current stage
-        // 'next-tablao-text' provides base styles (like font size, color, etc.)
-        // The 'stage' class (hidden-initial, visible, fading-out) controls opacity and transitions.
-        className={`next-tablao-text ${stage}`}
-        // Inline styles for non-animation related properties (can be moved to CSS if preferred)
+        key="next-tablao-animation-inline"
         style={{
           fontSize: "3rem",
           textAlign: "center",
@@ -62,15 +55,24 @@ export default function EventsPage() {
           marginBottom: "2rem",
           position: "relative",
           zIndex: 10,
-          willChange: "opacity", // Performance hint for browsers
+          willChange: "opacity", // Performance hint
+
+          // Crucial: Direct inline styles for animation control
+          opacity: opacity, // Controlled by state
+          display: display, // Controlled by state (to remove from layout after fade)
+
+          // Transitions for opacity changes
+          transition:
+            opacity === 1 ? "opacity 0.5s ease-in" : "opacity 1s ease-out",
+          // If opacity is 1 (fading in), use 0.5s transition.
+          // If opacity is 0 (fading out or initial), use 1s transition.
+          // The initial opacity (0) will apply instantly due to the 50ms delay
+          // ensuring the first transition to 1 is the one we want to see.
         }}
       >
         Next Tablao
       </h1>
-      {/*
-        You can place your other EventsPage content here.
-        This H1 will appear, animate, and then disappear from the DOM above your other content.
-      */}
+      {/* ...your other EventsPage content here... */}
     </div>
   )
 }
