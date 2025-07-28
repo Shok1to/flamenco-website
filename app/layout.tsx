@@ -1,5 +1,5 @@
 // app/layout.tsx
-import React from "react" // Essential import for React
+import React from "react"
 import "./globals.css"
 import { Inter } from "next/font/google"
 
@@ -22,6 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Add Montserrat font from Google Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
