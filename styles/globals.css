@@ -159,5 +159,9 @@ body {
   .fade-in-scale {
     animation: fadeInScale 1.5s ease-out forwards;
   }
+
+  .century-gothic {
+    font-family: "Century Gothic", Arial, sans-serif;
+  }
 }
 /* --- END ANIMATION CODE --- */
