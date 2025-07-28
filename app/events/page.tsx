@@ -16,7 +16,7 @@ export default function EventsPage() {
         <section className="py-12 md:py-16 bg-slate-50">
           <div className="container flex flex-col items-center">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
-              Next Tablao
+              TABLAO FLAMENCO TORONTO
             </h1>
             {/* CENTERED GRID WRAPPER */}
             <div className="w-full flex justify-center">
