@@ -162,6 +162,7 @@ body {
 
   .century-gothic {
     font-family: "Montserrat", Arial, sans-serif;
+    color: red !important;
   }
 }
 /* --- END ANIMATION CODE --- */
