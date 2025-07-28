@@ -15,7 +15,7 @@ export default function EventsPage() {
       <main className="flex-1">
         <section className="py-12 md:py-16 bg-slate-50">
           <div className="container flex flex-col items-center">
-            <h1 className="century-gothic text-4xl font-bold text-white text-center">
+            <h1 className="century-gothic text-4xl font-bold text-red-600 text-center">
               TABLAO FLAMENCO TORONTO
             </h1>
 
