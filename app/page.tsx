@@ -50,7 +50,7 @@ export default function Home() {
           </div>
           <div className="container relative z-10 flex flex-col items-center justify-center text-center text-white py-20">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
-              Next Tablao
+              TABLAO FLAMENCO TORONTO
             </h1>
             <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
               Authentic performances that capture the soul and spirit of Spain
