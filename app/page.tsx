@@ -49,9 +49,10 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/40" />
           </div>
           <div className="container relative z-10 flex flex-col items-center justify-center text-center text-white py-20">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text">
+            <h1 className="century-gothic text-4xl font-bold text-red-500 text-center tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text py-20">
               TABLAO FLAMENCO TORONTO
             </h1>
+
             <p className="mt-4 max-w-[700px] text-lg text-white/90 md:text-xl">
               Authentic performances that capture the soul and spirit of Spain
             </p>

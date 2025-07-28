@@ -17,9 +17,9 @@ export default function EventsPage() {
           <div className="container flex flex-col items-center">
             <h1
               className="century-gothic text-4xl font-bold text-center"
-              style={{ color: "red" }}
+              style={{ color: "black" }}
             >
-              TABLAO FLAMENCO TORONTO
+              Next Tablao
             </h1>
 
             {/* CENTERED GRID WRAPPER */}
