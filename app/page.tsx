@@ -51,7 +51,15 @@ export default function Home() {
           <div className="container relative z-10 flex flex-col items-center justify-center text-center text-white py-20">
             <h1
               className="century-gothic text-4xl font-bold text-center tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-zoom-text py-20"
-              style={{ color: "#DA2522" }}
+              style={{
+                color: "#DA2522",
+                textShadow: `
+      -2px -2px 0 #fff,  
+      2px -2px 0 #fff,
+      -2px 2px 0 #fff,
+      2px 2px 0 #fff
+    `,
+              }}
             >
               TABLAO FLAMENCO TORONTO
             </h1>
