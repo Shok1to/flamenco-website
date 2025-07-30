@@ -51,7 +51,7 @@ export default function Home() {
           <div className="container relative z-10 flex flex-col items-center justify-center text-center text-white py-20">
             <div className="flex justify-center">
               <Image
-                src="/tablao-flamenco-logo.svg"
+                src="/tablao-flamenco.svg"
                 alt="Tablao Flamenco Toronto"
                 width={300}
                 height={100}
